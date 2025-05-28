@@ -4,12 +4,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const ownerInfo = {
-  name: "Alex Persona",
-  profession: "Full-Stack Developer & AI Enthusiast",
+  name: "Charan Nihaal R",
+  profession: "College Student",
 };
 
 export default function IntroSection() {
-  const generalWelcomeMessage = `Welcome to my portfolio! I'm ${ownerInfo.name}, a ${ownerInfo.profession}. I'm passionate about creating innovative and user-friendly digital experiences. Explore my work and feel free to get in touch!`;
+  const generalWelcomeMessage = `Hello! I'm ${ownerInfo.name}, a ${ownerInfo.profession} passionate about technology. I enjoy building Discord bots, crafting webpages with HTML & CSS, and I'm currently advancing my Python skills, learning Java, and honing my JavaScript abilities. I'm also developing my expertise in MySQL and Data Analysis. Explore my projects and connect with me!`;
 
   return (
     <section id="home" className="container mx-auto px-4 py-12 text-center min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center">
@@ -18,7 +18,7 @@ export default function IntroSection() {
           Hi, I&apos;m <span className="text-primary">{ownerInfo.name}</span>
         </h1>
         <p className="text-xl md:text-2xl text-foreground/80 mb-8">
-          A {ownerInfo.profession} passionate about crafting innovative digital experiences.
+          A {ownerInfo.profession} exploring web development, bot creation, and data analysis.
         </p>
 
         <Card className="text-left shadow-xl">

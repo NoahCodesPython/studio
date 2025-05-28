@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -5,35 +6,35 @@ import { ExternalLink } from "lucide-react";
 import { Button } from "../ui/button";
 
 const projects = [
-  { 
-    id: 1, 
-    title: 'AI-Powered Content Platform', 
-    description: 'A dynamic web application leveraging Next.js for the frontend and GenAI for intelligent content generation and personalization. Features a custom CMS and user analytics.', 
-    imageUrl: 'https://placehold.co/600x400', 
-    dataAiHint: 'technology abstract', 
-    tags: ['Next.js', 'TypeScript', 'GenAI', 'CMS', 'Analytics'],
-    liveLink: '#',
-    codeLink: '#'
+  {
+    id: 1,
+    title: 'Community Discord Bot',
+    description: 'A feature-rich Discord bot developed to enhance community engagement and server moderation. Built with JavaScript and Node.js, leveraging the Discord.js library.',
+    imageUrl: 'https://placehold.co/600x400',
+    dataAiHint: 'community chat',
+    tags: ['Discord.js', 'Node.js', 'JavaScript', 'Community Tools'],
+    liveLink: '#', // Replace with actual link
+    codeLink: '#'  // Replace with actual link
   },
-  { 
-    id: 2, 
-    title: 'Scalable Microservice Suite', 
-    description: 'Developed a suite of microservices for a high-traffic e-commerce platform, focusing on order processing, inventory management, and user authentication using Node.js and Docker.', 
-    imageUrl: 'https://placehold.co/600x400', 
-    dataAiHint: 'cloud computing', 
-    tags: ['Node.js', 'Docker', 'Microservices', 'E-commerce', 'API'],
-    liveLink: '#',
-    codeLink: '#'
+  {
+    id: 2,
+    title: 'Personal Portfolio Website',
+    description: 'My first portfolio website, showcasing my projects and skills. Developed using HTML, CSS, and a touch of JavaScript for interactivity.',
+    imageUrl: 'https://placehold.co/600x400',
+    dataAiHint: 'web design',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Web Development'],
+    liveLink: '#', // Replace with actual link
+    codeLink: '#'  // Replace with actual link
   },
-  { 
-    id: 3, 
-    title: 'Open Source Dev Toolkit', 
-    description: 'Contributed to and maintained an open-source developer toolkit that simplifies common development tasks, including code linting, testing, and deployment automation.', 
-    imageUrl: 'https://placehold.co/600x400', 
-    dataAiHint: 'code editor', 
-    tags: ['Open Source', 'CLI', 'JavaScript', 'Automation', 'Testing'],
-    liveLink: '#',
-    codeLink: '#'
+  {
+    id: 3,
+    title: 'Data Analysis Mini-Project',
+    description: 'An introductory project exploring data analysis techniques using Python and MySQL. Focused on cleaning, analyzing, and visualizing a sample dataset.',
+    imageUrl: 'https://placehold.co/600x400',
+    dataAiHint: 'data charts',
+    tags: ['Python', 'MySQL', 'Data Analysis', 'Pandas'],
+    liveLink: '#', // Replace with actual link
+    codeLink: '#'  // Replace with actual link
   },
 ];
 
