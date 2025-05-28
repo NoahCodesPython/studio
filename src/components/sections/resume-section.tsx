@@ -24,7 +24,7 @@ export default function ResumeSection() {
               </a>
             </Button>
             <Button variant="outline" asChild>
-              <a href={resumePdfUrl} download="resume_alex_persona.pdf">
+              <a href={resumePdfUrl} download="resume_charan.pdf">
                 <Download className="mr-2 h-4 w-4" /> Download Resume
               </a>
             </Button>

@@ -19,7 +19,7 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link href="#home" className="flex items-center gap-2 text-2xl font-bold text-primary hover:text-primary/90 transition-colors">
             <CodeXml className="h-7 w-7" />
-            Persona
+            Charan
           </Link>
           <nav className="hidden md:flex space-x-4">
             {navLinks.map((link) => (

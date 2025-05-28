@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Persona - Portfolio',
+  title: 'Charan - Portfolio',
   description: 'A modern portfolio website built with Next.js and AI.',
 };
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-foreground bg-background`}>
-        <ThemeProvider defaultTheme="system" storageKey="persona-theme">
+        <ThemeProvider defaultTheme="system" storageKey="charan-portfolio-theme">
           <BackgroundParticles />
           <Header />
           <main className="pt-16 relative z-10"> {/* Add padding-top to offset fixed header */}
