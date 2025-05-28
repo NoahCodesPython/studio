@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import { sendContactEmailAction } from "@/app/actions/send-contact-email";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -36,17 +37,32 @@ export default function ContactSection() {
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     setIsSubmitting(true);
-    console.log("Contact form submitted. Data:", data);
-    console.log("This form would be configured to send an email to: shivanicharan297@gmail.com");
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const result = await sendContactEmailAction(data);
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    form.reset();
-    setIsSubmitting(false);
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: result.message || "Thank you for reaching out. I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Error Sending Message",
+          description: result.message || "An unexpected error occurred. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message due to a network or server issue. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -110,11 +126,4 @@ export default function ContactSection() {
                 ) : (
                   "Send Message"
                 )}
-              </Button>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
-    </section>
-  );
-}
+              </Button
