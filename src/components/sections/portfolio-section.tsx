@@ -49,8 +49,8 @@ export default function PortfolioSection() {
               <Image
                 src={project.imageUrl}
                 alt={project.title}
-                layout="fill"
-                objectFit="cover"
+                fill
+                className="object-cover"
                 data-ai-hint={project.dataAiHint}
               />
             </div>
@@ -83,3 +83,4 @@ export default function PortfolioSection() {
     </section>
   );
 }
+
