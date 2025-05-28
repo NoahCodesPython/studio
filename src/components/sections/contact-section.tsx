@@ -126,4 +126,11 @@ export default function ContactSection() {
                 ) : (
                   "Send Message"
                 )}
-              </Button
+              </Button>
+            </form>
+          </Form>
+        </CardContent>
+      </Card>
+    </section>
+  );
+}

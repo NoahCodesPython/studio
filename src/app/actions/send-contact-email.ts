@@ -90,9 +90,9 @@ export async function sendContactEmailAction(data: SendEmailParams): Promise<Act
     // SIMULATE SENDING FOR NOW IF THE ABOVE LINE IS COMMENTED
     // If the transporter.sendMail line is commented out, we can simulate success for testing UI.
     // If it's uncommented, the actual result of sendMail should be used.
-    const isSimulating = (typeof transporter.sendMail) !== 'function' || transporter.sendMail.toString().includes('await transporter.sendMail(mailOptions);');
+    const isSimulating = (typeof (transporter as any).sendMail) !== 'function' || (transporter as any).sendMail.toString().includes('await transporter.sendMail(mailOptions);'); // Cast to any to check if it's the original function
     if (isSimulating) {
-      console.log('Email sending simulated. Mail options:', mailOptions);
+      console.log('Email sending simulated as transporter.sendMail is commented out or not yet defined by a real provider. Mail options:', mailOptions);
        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
     } else {
       await transporter.sendMail(mailOptions);
@@ -108,4 +108,6 @@ export async function sendContactEmailAction(data: SendEmailParams): Promise<Act
     } else {
         console.error('Unknown error object:', error);
     }
-    return {
+    return { success: false, message: 'An error occurred while trying to send your message. Please try again later.' };
+  }
+}
