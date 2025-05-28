@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useForm, type SubmitHandler } from "react-hook-form";
@@ -35,7 +36,8 @@ export default function ContactSection() {
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     setIsSubmitting(true);
-    console.log("Contact form submitted:", data);
+    console.log("Contact form submitted. Data:", data);
+    console.log("This form would be configured to send an email to: shivanicharan297@gmail.com");
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
 
