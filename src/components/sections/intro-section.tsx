@@ -100,3 +100,5 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
   );
 }
 
+
+    
