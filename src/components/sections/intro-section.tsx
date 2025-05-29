@@ -5,24 +5,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Skeleton } from "@/components/ui/skeleton"; // For loading state
 import { Linkedin, Github, Youtube } from "lucide-react"; // Added icons
 
-// A simple Discord icon SVG as lucide-react doesn't have a direct one.
+// A more recognizable Discord icon SVG
 const DiscordIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    viewBox="0 0 28 28" // Adjusted viewBox for a more common Discord icon shape
+    fill="currentColor" // Standard for Discord logo fill
     className="h-6 w-6"
   >
-    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 1.831-.533 3.542-1.438 5L22 22l-3.438-1.438A9.933 9.933 0 0 1 12 22z" />
-    <path d="M8 12.5c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5.448-1.5 1-1.5 1 .672 1 1.5z" />
-    <path d="M17 12.5c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5.448-1.5 1-1.5 1 .672 1 1.5z" />
-    <path d="M15.5 16.5c0 1.105-.895 2-2 2s-2-.895-2-2" />
+    <path d="M23.0212 3.441H4.9788C3.88492 3.441 3 4.33536 3 5.4414V20.559C3 21.6651 3.88492 22.5594 4.9788 22.5594H20.2221L23.9065 25.8349C24.0512 25.9622 24.2623 26.0002 24.4388 25.9251C24.6152 25.85 24.7383 25.6773 24.7383 25.486V5.4414C24.7383 4.33536 23.8533 3.441 23.0212 3.441ZM9.40492 16.3021C8.01924 16.3021 6.89992 15.1703 6.89992 13.7703C6.89992 12.3703 8.01924 11.2385 9.40492 11.2385C10.7906 11.2385 11.91 12.3703 11.91 13.7703C11.91 15.1703 10.7906 16.3021 9.40492 16.3021ZM15.3333 16.3021C13.9476 16.3021 12.8283 15.1703 12.8283 13.7703C12.8283 12.3703 13.9476 11.2385 15.3333 11.2385C16.719 11.2385 17.8383 12.3703 17.8383 13.7703C17.8383 15.1703 16.719 16.3021 15.3333 16.3021Z" />
   </svg>
 );
 
@@ -93,7 +86,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Visit Charan's ${link.name} profile`}
+                  aria-label={`Visit ${ownerName}'s ${link.name} profile`}
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
                   {link.icon}
