@@ -129,8 +129,12 @@
     @apply mt-4 bg-transparent text-muted-foreground border-none cursor-pointer text-sm underline hover:text-foreground transition-colors;
   }
 
+  .skip-button:hover {
+    @apply text-foreground;
+  }
+
   .main-content {
-    @apply transition-filter duration-500 ease-in-out;
+    @apply transition duration-500 ease-in-out;
   }
 
   .main-content.blurred {
