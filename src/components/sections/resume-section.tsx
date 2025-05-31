@@ -3,7 +3,12 @@ import { Download, Eye } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function ResumeSection() {
-  const resumePdfUrl = "/resume_placeholder.pdf"; // User needs to place their resume PDF here in /public folder
+  // The PDF file should be placed in the 'public' directory at the root of your project.
+  // For example, if your resume is named 'resume_placeholder.pdf',
+  // its path in the project should be 'public/resume_placeholder.pdf'.
+  // The URL will then be '/resume_placeholder.pdf'.
+  const resumePdfUrl = "/resume_placeholder.pdf"; 
+  const downloadFilename = "Charan_Resume.pdf"; // Desired filename for download
 
   return (
     <section id="resume" className="container mx-auto px-4 py-12">
@@ -13,7 +18,7 @@ export default function ResumeSection() {
           <CardTitle>Professional Experience & Skills</CardTitle>
           <CardDescription>
             Below is an overview of my professional background. You can view the full resume in your browser or download it.
-            Please note: A placeholder PDF is used. Replace 'public/resume_placeholder.pdf' with your actual resume.
+            Ensure you have placed your resume (e.g., 'resume_placeholder.pdf') in the 'public' folder.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -24,7 +29,7 @@ export default function ResumeSection() {
               </a>
             </Button>
             <Button variant="outline" asChild>
-              <a href={resumePdfUrl} download="resume_charan.pdf">
+              <a href={resumePdfUrl} download={downloadFilename}>
                 <Download className="mr-2 h-4 w-4" /> Download Resume
               </a>
             </Button>
