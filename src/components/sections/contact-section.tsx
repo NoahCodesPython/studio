@@ -21,19 +21,19 @@ export default function ContactSection() {
   const contactDetails: ContactDetail[] = [
     {
       method: "Email",
-      value: "charan.nihaal.r@example.com", // Replace with your actual email
+      value: "shivanicharan297@gmail.com",
       icon: <Mail className="h-5 w-5 text-primary" />,
-      href: "mailto:charan.nihaal.r@example.com", // Replace with your actual email
+      href: "mailto:shivanicharan297@gmail.com",
     },
     {
       method: "Phone",
-      value: "+1 (555) 000-0000", // Replace with your actual phone or remove if not applicable
+      value: "+91 9444701683",
       icon: <Phone className="h-5 w-5 text-primary" />,
-      href: "tel:+15550000000", // Replace with your actual phone
+      href: "tel:+919444701683",
     },
     {
       method: "Discord",
-      value: "charann#1234", // Replace with your actual Discord username
+      value: "noah_osmont._.", 
       icon: <MessageSquare className="h-5 w-5 text-primary" />,
     },
   ];
@@ -76,37 +76,35 @@ export default function ContactSection() {
               <AccordionContent>
                 <ul className="space-y-4 pt-4">
                   {contactDetails.map((detail) => (
-                    (detail.method === "Phone" && detail.value.includes("555-000-0000")) ? null : ( // Conditionally render phone
-                      <li key={detail.method} className="flex items-center justify-between group">
-                        <div className="flex items-center gap-3">
-                          {detail.icon}
-                          <div>
-                            <p className="font-semibold">{detail.method}</p>
-                            {detail.href ? (
-                              <a
-                                href={detail.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-muted-foreground hover:text-foreground transition-colors break-all"
-                              >
-                                {detail.value}
-                              </a>
-                            ) : (
-                              <p className="text-muted-foreground break-all">{detail.value}</p>
-                            )}
-                          </div>
+                    <li key={detail.method} className="flex items-center justify-between group">
+                      <div className="flex items-center gap-3">
+                        {detail.icon}
+                        <div>
+                          <p className="font-semibold">{detail.method}</p>
+                          {detail.href ? (
+                            <a
+                              href={detail.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-muted-foreground hover:text-foreground transition-colors break-all"
+                            >
+                              {detail.value}
+                            </a>
+                          ) : (
+                            <p className="text-muted-foreground break-all">{detail.value}</p>
+                          )}
                         </div>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="opacity-0 group-hover:opacity-100 transition-opacity"
-                          onClick={() => handleCopy(detail.value, detail.method)}
-                          aria-label={`Copy ${detail.method}`}
-                        >
-                          <Copy className="h-4 w-4" />
-                        </Button>
-                      </li>
-                    )
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="opacity-0 group-hover:opacity-100 transition-opacity"
+                        onClick={() => handleCopy(detail.value, detail.method)}
+                        aria-label={`Copy ${detail.method}`}
+                      >
+                        <Copy className="h-4 w-4" />
+                      </Button>
+                    </li>
                   ))}
                 </ul>
                 <p className="text-sm text-muted-foreground mt-6 text-center">
