@@ -42,7 +42,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
     {
       name: "Discord",
       url: "#", // Replace with your Discord invite or server link
-      icon: <DiscordIcon className="h-6 w-6" />, // Uses h-6 w-6
+      icon: <DiscordIcon className="h-7 w-7" />, // Increased size for Discord
     },
     {
       name: "YouTube",
