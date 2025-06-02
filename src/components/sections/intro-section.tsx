@@ -3,9 +3,21 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton"; // For loading state
-import { Linkedin, Github, Youtube, MessageSquare } from "lucide-react"; // Added icons & MessageSquare for Discord placeholder
+import { Linkedin, Github, Youtube } from "lucide-react"; 
 
-// Custom Discord Icon SVG component removed.
+// Define the DiscordIcon component here for use in this file
+const DiscordIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    role="img"
+    className={className}
+  >
+    <title>Discord</title>
+    <path d="M20.228 0S16.812.003 15.322 1.636C13.218 1.173 10.703 1.166 8.678 1.636 7.188.003 3.772 0 3.772 0s3.76 3.272 3.76 7.13c0 3.27-1.91 4.01-3.76 4.01S0 18.008 0 18.008s3.004 2.73 6.83 2.73c4.745 0 6.848-3.38 6.848-3.38S12.11 19.227 10.31 20.73c-1.628 1.37-3.48 2.15-3.48 2.15s.44-.627.832-1.14c2.498-3.22 2.958-7.23 2.958-7.23s1.49.637 3.318.637c1.83 0 3.318-.638 3.318-.638s.46 4.01 2.958 7.23c.392.512.832 1.14.832 1.14s-1.852-.78-3.48-2.15c-1.8-.185-3.322-1.848-3.322-1.848s2.102 3.38 6.848 3.38c3.825 0 6.828-2.73 6.828-2.73S20.228 14.41 20.228 11.14c0-3.858 3.772-7.13 3.772-7.13S20.228 0 20.228 0zM7.83 11.917c-1.048 0-1.89-.85-1.89-1.893s.842-1.894 1.89-1.894c1.047 0 1.89.85 1.89 1.894 0 1.043-.843 1.893-1.89 1.893zm8.34 0c-1.048 0-1.89-.85-1.89-1.893s.842-1.894 1.89-1.894c1.047 0 1.89.85 1.89 1.894.002 1.043-.842 1.893-1.89 1.893z"/>
+  </svg>
+);
 
 interface IntroSectionProps {
   ownerName: string;
@@ -29,7 +41,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
     {
       name: "Discord",
       url: "#", // Replace with your Discord invite or server link
-      icon: <MessageSquare className="h-6 w-6" />, // Placeholder icon for Discord
+      icon: <DiscordIcon className="h-6 w-6" />, // Replaced MessageSquare
     },
     {
       name: "YouTube",
