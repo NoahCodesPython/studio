@@ -57,21 +57,22 @@ export default function Home() {
   const handleConfirm = (inputValue: string) => {
     setIsOverlayClosing(true);
     setViewerProfile(inputValue);
-    handlePersonalizedIntro(inputValue);
+    handlePersonalizedIntro(inputValue); // AI generates intro
     setTimeout(() => {
       setShowOverlay(false);
       setIsOverlayClosing(false);
-    }, 700); // Duration of the closing animation
+    }, 400); // Duration of the closing animation
   };
 
   const handleSkip = () => {
     setIsOverlayClosing(true);
     setViewerProfile(''); // No specific profile
-    handlePersonalizedIntro(); // Generate a generic AI intro or fallback to default
+    setIntroMessage(defaultWelcomeMessage); // Use default message, no AI call
+    setIsGeneratingIntro(false); // Ensure loading state is off
     setTimeout(() => {
       setShowOverlay(false);
       setIsOverlayClosing(false);
-    }, 700); // Duration of the closing animation
+    }, 400); // Duration of the closing animation
   };
 
   if (!initialLoadDone) {

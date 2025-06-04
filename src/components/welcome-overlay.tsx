@@ -55,7 +55,7 @@ const WelcomeOverlay: FC<WelcomeOverlayProps> = ({
       aria-modal="true"
       className={className ? `${className} fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm` : "fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"}
     >
-      <Card className="w-full max-w-md shadow-2xl" aria-labelledby="welcome-heading">
+      <Card className="w-full max-w-md animated-welcome-card" aria-labelledby="welcome-heading">
         <CardHeader>
           <CardTitle id="welcome-heading">{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
@@ -71,7 +71,7 @@ const WelcomeOverlay: FC<WelcomeOverlayProps> = ({
             className="w-full"
           />
         </CardContent>
-        <CardFooter className="flex flex-col sm:flex-row justify-end gap-2">
+        <CardFooter className="flex flex-col sm:flex-row justify-end gap-2 pt-6">
           <Button variant="ghost" onClick={handleSkip}>
             {skipButtonText}
           </Button>
