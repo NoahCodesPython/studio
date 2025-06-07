@@ -4,7 +4,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Linkedin, Github, Youtube } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import React from 'react';
 
 // Define the DiscordIcon component here for use in this file
@@ -34,22 +33,22 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
     {
       name: "LinkedIn",
       url: "#", // Replace with your actual LinkedIn URL
-      icon: <Linkedin className="h-24 w-24" />,
+      IconComponent: Linkedin,
     },
     {
       name: "GitHub",
       url: "#", // Replace with your actual GitHub URL
-      icon: <Github className="h-24 w-24" />,
+      IconComponent: Github,
     },
     {
       name: "Discord",
       url: "#", // Replace with your Discord invite or server link
-      icon: <DiscordIcon className="h-24 w-24" />,
+      IconComponent: DiscordIcon,
     },
     {
       name: "YouTube",
       url: "#", // Replace with your actual YouTube URL
-      icon: <Youtube className="h-24 w-24" />,
+      IconComponent: Youtube,
     },
   ];
 
@@ -81,25 +80,22 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                 <p className="text-foreground text-lg leading-relaxed whitespace-pre-line">{generatedIntro}</p>
               )}
             </div>
-            <div className="mt-8 flex justify-center space-x-6">
-              {socialLinks.map((link) => (
-                <Button
-                  key={link.name}
-                  variant="ghost"
-                  asChild
-                  className="rounded-full hover:bg-accent/20 hover:text-accent-foreground transition-all duration-300 ease-in-out transform hover:scale-110 p-0 w-auto h-auto"
-                >
+            <div className="mt-8 flex justify-center space-x-4 md:space-x-6">
+              {socialLinks.map((link) => {
+                const Icon = link.IconComponent;
+                return (
                   <a
+                    key={link.name}
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${ownerName}'s ${link.name} profile`}
-                    className="p-2" 
+                    className="p-3 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                   >
-                    {link.icon}
+                    <Icon className="h-10 w-10" />
                   </a>
-                </Button>
-              ))}
+                );
+              })}
             </div>
           </CardContent>
         </Card>
