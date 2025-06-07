@@ -33,22 +33,22 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
     {
       name: "LinkedIn",
       url: "#", // Replace with your actual LinkedIn URL
-      icon: <Linkedin className="h-8 w-8" />, 
+      icon: <Linkedin className="h-10 w-10" />, 
     },
     {
       name: "GitHub",
       url: "#", // Replace with your actual GitHub URL
-      icon: <Github className="h-8 w-8" />, 
+      icon: <Github className="h-10 w-10" />, 
     },
     {
       name: "Discord",
       url: "#", // Replace with your Discord invite or server link
-      icon: <DiscordIcon className="h-8 w-8" />, 
+      icon: <DiscordIcon className="h-10 w-10" />, 
     },
     {
       name: "YouTube",
       url: "#", // Replace with your actual YouTube URL
-      icon: <Youtube className="h-8 w-8" />, 
+      icon: <Youtube className="h-10 w-10" />, 
     },
   ];
 
@@ -87,14 +87,14 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                   variant="ghost"
                   size="icon"
                   asChild
-                  className="rounded-full hover:bg-accent/20 hover:text-accent-foreground transition-all duration-300 ease-in-out transform hover:scale-110 p-0 w-auto h-auto" // Adjusted to allow icon to define size
+                  className="rounded-full hover:bg-accent/20 hover:text-accent-foreground transition-all duration-300 ease-in-out transform hover:scale-110 p-0 w-auto h-auto"
                 >
                   <a
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${ownerName}'s ${link.name} profile`}
-                    className="p-2" // Add padding around the icon itself
+                    className="p-2" 
                   >
                     {link.icon}
                   </a>
