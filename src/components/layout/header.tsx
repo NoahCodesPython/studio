@@ -28,23 +28,23 @@ export default function Header() {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out 
-                  ${isScrolled ? 'bg-background/90 backdrop-blur-lg shadow-lg' : 'bg-transparent backdrop-blur-none shadow-none'}`}
+                  ${isScrolled ? 'bg-background/90 backdrop-blur-xl shadow-xl' : 'bg-transparent backdrop-blur-none shadow-none'}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link 
             href="#home" 
-            className="flex items-center gap-2 text-2xl font-bold text-primary hover:text-primary/80 transition-transform duration-200 ease-out hover:scale-105"
+            className="group flex items-center gap-2.5 text-2xl font-bold text-primary hover:text-primary/80 transition-transform duration-200 ease-out hover:scale-105"
           >
             <CodeXml className="h-7 w-7 transition-transform duration-300 group-hover:rotate-12" />
             Charan
           </Link>
-          <nav className="hidden md:flex flex-1 justify-center space-x-1">
+          <nav className="hidden md:flex flex-1 justify-center items-center space-x-2"> {/* Added items-center and increased space-x slightly */}
             {navLinks.map((link) => (
               <Button key={link.href} variant="ghost" asChild
-                className="hover:bg-accent/20"
+                className="hover:bg-accent/20 interactive-scale px-3 py-2" // Added interactive-scale and adjusted padding
               >
-                <Link href={link.href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                <Link href={link.href} className="text-sm font-medium tracking-wider text-foreground/80 hover:text-foreground transition-colors"> {/* Increased font-medium and added tracking-wider */}
                   {link.label}
                 </Link>
               </Button>
@@ -59,4 +59,3 @@ export default function Header() {
     </header>
   );
 }
-

@@ -102,13 +102,13 @@ export default function ContactSection() {
       ref={sectionRef}
       className={cn("container mx-auto px-4 animate-on-scroll", isVisible ? "is-visible" : "")}
     >
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 tracking-tight">Get In Touch</h2>
-      <Card className="max-w-2xl mx-auto shadow-xl border-primary/10 hover:shadow-2xl transition-shadow duration-300">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-20 tracking-tight">Get In Touch</h2> {/* Increased margin-bottom */}
+      <Card className="max-w-2xl mx-auto shadow-xl border-primary/10 hover:shadow-2xl transition-all duration-300 ease-in-out hover:border-primary/30 interactive-scale"> {/* Added interactive-scale and hover border */}
         <CardHeader>
           <CardTitle className="text-2xl font-semibold flex items-center gap-2">
             <Send className="h-6 w-6 text-primary"/> Connect With Me
           </CardTitle>
-          <CardDescription className="text-md text-foreground/70">
+          <CardDescription className="text-md text-foreground/70 pt-1">
             I&apos;m always open to discussing new projects, creative ideas, or opportunities.
             Reveal my contact information below.
           </CardDescription>
@@ -116,7 +116,7 @@ export default function ContactSection() {
         <CardContent>
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-b-0">
-              <AccordionTrigger className="text-lg hover:no-underline hover:text-primary transition-colors rounded-md px-3 py-3 data-[state=open]:bg-primary/10 data-[state=open]:text-primary">
+              <AccordionTrigger className="text-lg hover:no-underline hover:text-primary transition-colors rounded-md px-4 py-4 data-[state=open]:bg-primary/10 data-[state=open]:text-primary data-[state=open]:font-semibold interactive-scale"> {/* Increased padding and interactive scale */}
                 Show Contact Information
               </AccordionTrigger>
               <AccordionContent className="pt-6">
@@ -124,7 +124,7 @@ export default function ContactSection() {
                   {contactDetails.map((detail) => (
                     <li key={detail.method} className="flex items-center justify-between group p-3 rounded-md hover:bg-muted/80 transition-colors">
                       <div className="flex items-center gap-4">
-                        <span className="p-2 bg-primary/10 rounded-full text-primary">
+                        <span className="p-2.5 bg-primary/10 rounded-full text-primary"> {/* Slightly larger icon background */}
                           {detail.icon}
                         </span>
                         <div>
@@ -146,7 +146,7 @@ export default function ContactSection() {
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-primary"
+                        className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-primary interactive-scale" /* Added interactive-scale */
                         onClick={() => handleCopy(detail.value, detail.method)}
                         aria-label={`Copy ${detail.method}`}
                       >

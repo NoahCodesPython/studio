@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react"; // Added Github icon
+import { ExternalLink, Github } from "lucide-react"; 
 import { Button } from "../ui/button";
 import { generateProjectImage, type GenerateProjectImageInput } from '@/ai/flows/generate-project-image';
 import { Skeleton } from "@/components/ui/skeleton";
@@ -18,8 +18,8 @@ interface Project {
   imageUrl: string;
   dataAiHint: string;
   tags: string[];
-  liveLink?: string; // Optional
-  codeLink?: string; // Optional
+  liveLink?: string; 
+  codeLink?: string; 
   currentImageUrl: string;
   isLoadingImage: boolean;
 }
@@ -56,7 +56,7 @@ const initialProjectsData: Project[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'data charts graphs python',
     tags: ['Python', 'MySQL', 'Data Analysis', 'Pandas', 'Matplotlib'],
-    codeLink: '#', // Example: No live link for this one
+    codeLink: '#', 
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
   },
@@ -126,12 +126,12 @@ export default function PortfolioSection() {
       ref={sectionRef}
       className={cn("container mx-auto px-4 animate-on-scroll", isVisible ? "is-visible" : "")}
     >
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 tracking-tight">My Work</h2>
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-20 tracking-tight">My Work</h2> {/* Increased margin-bottom */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project) => (
           <Card 
             key={project.id} 
-            className="flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 border border-primary/10 hover:border-primary/30"
+            className="group flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-[1.03] border border-primary/10 hover:border-primary/40" /* Added hover:scale and stronger hover border */
           >
             <div className="relative w-full h-52 bg-muted flex items-center justify-center overflow-hidden">
               {project.isLoadingImage ? (
@@ -141,12 +141,12 @@ export default function PortfolioSection() {
                   src={project.currentImageUrl}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" /* Stronger image scale on hover */
                   data-ai-hint={project.dataAiHint}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
             </div>
             <CardHeader className="pb-3">
               <CardTitle className="text-xl font-semibold tracking-wide">{project.title}</CardTitle>
@@ -155,7 +155,7 @@ export default function PortfolioSection() {
             <CardContent className="flex-grow pt-2">
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs px-3 py-1 rounded-full">
+                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs px-3 py-1.5 rounded-full cursor-default"> {/* Increased padding */}
                     {tag}
                   </Badge>
                 ))}
@@ -163,14 +163,14 @@ export default function PortfolioSection() {
             </CardContent>
             <CardFooter className="flex justify-start gap-3 pt-0 border-t border-border/50 p-4">
               {project.liveLink && (
-                <Button variant="default" size="sm" asChild className="btn-gradient shadow-md hover:shadow-lg">
+                <Button variant="default" size="sm" asChild className="btn-gradient shadow-md hover:shadow-lg primary-glow interactive-scale">
                   <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
                     Live Demo <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               )}
               {project.codeLink && (
-                <Button variant="outline" size="sm" asChild className="hover:bg-accent/10 hover:text-accent-foreground hover:border-accent">
+                <Button variant="outline" size="sm" asChild className="hover:bg-accent/10 hover:text-accent-foreground hover:border-accent interactive-scale">
                    <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" /> Code
                   </a>

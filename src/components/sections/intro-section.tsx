@@ -43,7 +43,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
     {
       name: "Discord",
       url: "#", // Replace with your Discord invite or server link
-      IconComponent: DiscordIcon,
+      IconComponent: DiscordIcon, // Using the locally defined DiscordIcon
     },
     {
       name: "YouTube",
@@ -55,17 +55,17 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
   return (
     <section id="home" className="container mx-auto px-4 text-center min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center">
       <div className="max-w-3xl w-full">
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight"> {/* Increased size */}
           Hi, I&apos;m <span className="text-primary animate-pulse">{ownerName}</span>
         </h1>
-        <p className="text-xl md:text-2xl text-foreground/80 mb-10">
+        <p className="text-xl md:text-2xl text-foreground/80 mb-10 leading-relaxed"> {/* Added leading-relaxed */}
           A {ownerProfession} exploring web development, bot creation, and data analysis.
         </p>
 
-        <Card className="text-left shadow-xl bg-card/80 backdrop-blur-sm border-primary/20">
+        <Card className="text-left shadow-xl bg-card/80 backdrop-blur-sm border-primary/20 interactive-scale">
           <CardHeader>
-            <CardTitle className="text-2xl">Welcome to My Digital Space!</CardTitle>
-            <CardDescription className="text-md">I&apos;m excited to share my journey and projects with you.</CardDescription>
+            <CardTitle className="text-2xl md:text-3xl">Welcome to My Digital Space!</CardTitle> {/* Increased size */}
+            <CardDescription className="text-md pt-1">I&apos;m excited to share my journey and projects with you.</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="p-6 border border-dashed border-primary/30 rounded-lg bg-muted/50 min-h-[120px]">
@@ -80,7 +80,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                 <p className="text-foreground text-lg leading-relaxed whitespace-pre-line">{generatedIntro}</p>
               )}
             </div>
-            <div className="mt-8 flex justify-center space-x-4 md:space-x-6">
+            <div className="mt-8 flex justify-center space-x-6 md:space-x-8"> {/* Increased spacing */}
               {socialLinks.map((link) => {
                 const Icon = link.IconComponent;
                 return (
@@ -90,7 +90,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${ownerName}'s ${link.name} profile`}
-                    className="p-3 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                    className="p-3 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 ease-in-out transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background" // Increased hover scale
                   >
                     <Icon className="h-5 w-5" />
                   </a>

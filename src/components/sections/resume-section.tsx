@@ -41,11 +41,11 @@ export default function ResumeSection() {
       ref={sectionRef}
       className={cn("container mx-auto px-4 animate-on-scroll", isVisible ? "is-visible" : "")}
     >
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 tracking-tight">My Resume</h2>
-      <Card className="shadow-xl border-primary/10 hover:shadow-2xl transition-shadow duration-300">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-20 tracking-tight">My Resume</h2> {/* Increased margin-bottom */}
+      <Card className="shadow-xl border-primary/10 hover:shadow-2xl transition-all duration-300 ease-in-out hover:border-primary/30 interactive-scale"> {/* Added interactive-scale and hover border */}
         <CardHeader>
           <CardTitle className="text-2xl font-semibold">Professional Experience & Skills</CardTitle>
-          <CardDescription className="text-md text-foreground/70">
+          <CardDescription className="text-md text-foreground/70 pt-1">
             Explore my professional background. You can view the full resume in a new tab or download it.
             An embedded preview is also available, though some browsers might restrict it.
             (Ensure 'resume_placeholder.pdf' is in the 'public' folder.)
@@ -53,12 +53,12 @@ export default function ResumeSection() {
         </CardHeader>
         <CardContent>
           <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild className="btn-gradient shadow-md hover:shadow-lg">
+            <Button asChild className="btn-gradient shadow-md hover:shadow-lg primary-glow interactive-scale">
               <a href={resumePdfUrl} target="_blank" rel="noopener noreferrer" aria-label="View Charan's Resume in a new tab">
                 <Eye className="mr-2 h-4 w-4" /> View Resume (PDF)
               </a>
             </Button>
-            <Button variant="outline" asChild className="hover:bg-accent/10 hover:text-accent-foreground hover:border-accent">
+            <Button variant="outline" asChild className="hover:bg-accent/10 hover:text-accent-foreground hover:border-accent interactive-scale">
               <a href={resumePdfUrl} download={downloadFilename} aria-label="Download Charan's Resume">
                 <Download className="mr-2 h-4 w-4" /> Download Resume
               </a>
