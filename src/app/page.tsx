@@ -11,7 +11,7 @@ import WelcomeOverlay from '@/components/welcome-overlay';
 import { generateIntro, type GenerateIntroInput } from '@/ai/flows/generate-intro';
 
 const ownerInfo = {
-  name: "Charan Nihaal R",
+  name: "Charan Nihaal",
   profession: "College Student",
 };
 
