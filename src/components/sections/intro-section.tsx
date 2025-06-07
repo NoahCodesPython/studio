@@ -33,22 +33,22 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
     {
       name: "LinkedIn",
       url: "#", // Replace with your actual LinkedIn URL
-      icon: <Linkedin className="h-10 w-10" />, 
+      icon: <Linkedin className="h-12 w-12" />, 
     },
     {
       name: "GitHub",
       url: "#", // Replace with your actual GitHub URL
-      icon: <Github className="h-10 w-10" />, 
+      icon: <Github className="h-12 w-12" />, 
     },
     {
       name: "Discord",
       url: "#", // Replace with your Discord invite or server link
-      icon: <DiscordIcon className="h-10 w-10" />, 
+      icon: <DiscordIcon className="h-12 w-12" />, 
     },
     {
       name: "YouTube",
       url: "#", // Replace with your actual YouTube URL
-      icon: <Youtube className="h-10 w-10" />, 
+      icon: <Youtube className="h-12 w-12" />, 
     },
   ];
 
@@ -85,7 +85,6 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                 <Button
                   key={link.name}
                   variant="ghost"
-                  size="icon"
                   asChild
                   className="rounded-full hover:bg-accent/20 hover:text-accent-foreground transition-all duration-300 ease-in-out transform hover:scale-110 p-0 w-auto h-auto"
                 >
