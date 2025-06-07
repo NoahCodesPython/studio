@@ -187,7 +187,7 @@
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(40px) scale(0.98); /* Added subtle scale */
-    transition: opacity 0.7s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1); /* Smoother easing and longer duration */
+    transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* Smoother easing and shorter duration */
   }
 
   .animate-on-scroll.is-visible {
