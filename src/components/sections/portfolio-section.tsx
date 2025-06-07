@@ -27,7 +27,7 @@ interface Project {
 const initialProjectsData: Project[] = [
   {
     id: 1,
-    title: 'Community Discord Bot',
+    title: 'Aquire Bot',
     description: 'A feature-rich Discord bot developed to enhance community engagement and server moderation. Built with JavaScript and Node.js, leveraging the Discord.js library.',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'community chat app',
@@ -195,3 +195,4 @@ export default function PortfolioSection() {
     </section>
   );
 }
+
