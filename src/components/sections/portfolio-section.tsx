@@ -1,58 +1,64 @@
 
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react"; // Added Github icon
 import { Button } from "../ui/button";
 import { generateProjectImage, type GenerateProjectImageInput } from '@/ai/flows/generate-project-image';
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  imageUrl: string; // Original placeholder
-  dataAiHint: string; // Hint for AI image generation prompt AND for Unsplash
+  imageUrl: string;
+  dataAiHint: string;
   tags: string[];
-  liveLink: string;
-  codeLink: string;
-  currentImageUrl: string; // Could be placeholder or AI generated
+  liveLink?: string; // Optional
+  codeLink?: string; // Optional
+  currentImageUrl: string;
   isLoadingImage: boolean;
 }
 
-const initialProjectsData = [
+const initialProjectsData: Project[] = [
   {
     id: 1,
     title: 'Community Discord Bot',
     description: 'A feature-rich Discord bot developed to enhance community engagement and server moderation. Built with JavaScript and Node.js, leveraging the Discord.js library.',
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'community chat app',
-    tags: ['Discord.js', 'Node.js', 'JavaScript', 'Community Tools'],
+    tags: ['Discord.js', 'Node.js', 'JavaScript', 'Community'],
     liveLink: '#', 
-    codeLink: '#'
+    codeLink: '#',
+    currentImageUrl: 'https://placehold.co/600x400.png',
+    isLoadingImage: true
   },
   {
     id: 2,
     title: 'Personal Portfolio Website',
-    description: 'My first portfolio website, showcasing my projects and skills. Developed using HTML, CSS, and a touch of JavaScript for interactivity.',
+    description: 'This very portfolio website, showcasing my projects and skills. Developed using Next.js, React, Tailwind CSS, ShadCN UI, and Genkit for AI features.',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'web design code',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Web Development'],
+    dataAiHint: 'modern web design code',
+    tags: ['Next.js', 'React', 'Tailwind', 'ShadCN', 'Genkit'],
     liveLink: '#', 
-    codeLink: '#'
+    codeLink: '#',
+    currentImageUrl: 'https://placehold.co/600x400.png',
+    isLoadingImage: true
   },
   {
     id: 3,
     title: 'Data Analysis Mini-Project',
-    description: 'An introductory project exploring data analysis techniques using Python and MySQL. Focused on cleaning, analyzing, and visualizing a sample dataset.',
+    description: 'An introductory project exploring data analysis techniques using Python and MySQL. Focused on cleaning, analyzing, and visualizing a sample dataset with Pandas and Matplotlib.',
     imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'data charts graphs',
-    tags: ['Python', 'MySQL', 'Data Analysis', 'Pandas'],
-    liveLink: '#', 
-    codeLink: '#'
+    dataAiHint: 'data charts graphs python',
+    tags: ['Python', 'MySQL', 'Data Analysis', 'Pandas', 'Matplotlib'],
+    codeLink: '#', // Example: No live link for this one
+    currentImageUrl: 'https://placehold.co/600x400.png',
+    isLoadingImage: true
   },
 ];
 
@@ -64,80 +70,112 @@ export default function PortfolioSection() {
       isLoadingImage: true 
     }))
   );
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const fetchImages = async () => {
       const updatedProjectsPromises = initialProjectsData.map(async (projectData) => {
         try {
-          // Construct a descriptive prompt for image generation
-          const promptText = `A visually appealing, professional digital art image for a software project card. Project Title: "${projectData.title}". Description: "${projectData.description.substring(0, 150)}". Keywords for style/content: ${projectData.dataAiHint}. Focus on a modern, clean aesthetic suitable for a tech portfolio.`;
+          const promptText = `A stunning, professional digital art image for a software project card. Project Title: "${projectData.title}". Keywords for style/content: ${projectData.dataAiHint}. Focus on a modern, clean, vibrant aesthetic suitable for a tech portfolio. Aspect ratio 16:9.`;
           const input: GenerateProjectImageInput = { prompt: promptText };
           const result = await generateProjectImage(input);
           
           if (result.imageDataUri && result.imageDataUri.startsWith('data:image')) {
             return { ...projectData, currentImageUrl: result.imageDataUri, isLoadingImage: false };
-          } else {
-            console.warn(`Received invalid or empty imageDataUri for project: ${projectData.title}. Falling back to placeholder.`);
-            return { ...projectData, currentImageUrl: projectData.imageUrl, isLoadingImage: false };
           }
+          return { ...projectData, currentImageUrl: projectData.imageUrl, isLoadingImage: false };
         } catch (error) {
           console.error(`Failed to generate image for project "${projectData.title}":`, error);
-          return { ...projectData, currentImageUrl: projectData.imageUrl, isLoadingImage: false }; // Fallback to placeholder on error
+          return { ...projectData, currentImageUrl: projectData.imageUrl, isLoadingImage: false };
         }
       });
 
       const resolvedProjects = await Promise.all(updatedProjectsPromises);
       setProjects(resolvedProjects);
     };
-
-    // Check if GOOGLE_API_KEY might be available (basic check, actual availability determined by Genkit)
-    // This is a conceptual check; in a real app, you might have a global state or env var check accessible here.
-    // For now, we'll assume it might be configured and attempt generation.
-    // If API key isn't set, Genkit calls will fail gracefully as per flow's error handling.
+    
     fetchImages();
   }, []);
 
   return (
-    <section id="portfolio" className="container mx-auto px-4 py-12">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">My Portfolio</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section 
+      id="portfolio" 
+      ref={sectionRef}
+      className={cn("container mx-auto px-4 animate-on-scroll", isVisible ? "is-visible" : "")}
+    >
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 tracking-tight">My Work</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project) => (
-          <Card key={project.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
-            <div className="relative w-full h-48 bg-muted flex items-center justify-center">
+          <Card 
+            key={project.id} 
+            className="flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 border border-primary/10 hover:border-primary/30"
+          >
+            <div className="relative w-full h-52 bg-muted flex items-center justify-center overflow-hidden">
               {project.isLoadingImage ? (
-                <Skeleton className="w-full h-full" />
+                <Skeleton className="w-full h-full bg-primary/10" />
               ) : (
                 <Image
                   src={project.currentImageUrl}
                   alt={project.title}
                   fill
-                  className="object-cover"
-                  data-ai-hint={project.dataAiHint} // This is for potential Unsplash integration later
+                  className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                  data-ai-hint={project.dataAiHint}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
             </div>
-            <CardHeader>
-              <CardTitle>{project.title}</CardTitle>
-              <CardDescription className="h-20 overflow-y-auto text-sm">{project.description}</CardDescription>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-xl font-semibold tracking-wide">{project.title}</CardTitle>
+              <CardDescription className="h-24 overflow-y-auto text-sm text-foreground/70 pt-1">{project.description}</CardDescription>
             </CardHeader>
-            <CardContent className="flex-grow">
-              <div className="flex flex-wrap gap-2">
+            <CardContent className="flex-grow pt-2">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">{tag}</Badge>
+                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs px-3 py-1 rounded-full">
+                    {tag}
+                  </Badge>
                 ))}
               </div>
             </CardContent>
-            <CardFooter className="flex justify-start gap-2">
-              <Button variant="outline" size="sm" asChild>
-                <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                  Live Demo <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="sm" asChild>
-                 <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
-                  View Code <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+            <CardFooter className="flex justify-start gap-3 pt-0 border-t border-border/50 p-4">
+              {project.liveLink && (
+                <Button variant="default" size="sm" asChild className="btn-gradient shadow-md hover:shadow-lg">
+                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                    Live Demo <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              )}
+              {project.codeLink && (
+                <Button variant="outline" size="sm" asChild className="hover:bg-accent/10 hover:text-accent-foreground hover:border-accent">
+                   <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-4 w-4" /> Code
+                  </a>
+                </Button>
+              )}
             </CardFooter>
           </Card>
         ))}

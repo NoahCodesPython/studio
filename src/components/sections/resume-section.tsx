@@ -1,46 +1,74 @@
 
+"use client";
+
+import React, { useRef, useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Download, Eye } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 export default function ResumeSection() {
-  // The PDF file MUST be placed in the 'public' directory at the root of your project.
-  // For example, if your resume is 'resume_placeholder.pdf', its path in the project
-  // should be 'public/resume_placeholder.pdf'. The URL will then be '/resume_placeholder.pdf'.
   const resumePdfUrl = "/resume_placeholder.pdf"; 
-  const downloadFilename = "Charan_Resume.pdf"; // Desired filename for download
+  const downloadFilename = "Charan_Nihaal_R_Resume.pdf";
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section id="resume" className="container mx-auto px-4 py-12">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">My Resume</h2>
-      <Card className="shadow-xl">
+    <section 
+      id="resume" 
+      ref={sectionRef}
+      className={cn("container mx-auto px-4 animate-on-scroll", isVisible ? "is-visible" : "")}
+    >
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 tracking-tight">My Resume</h2>
+      <Card className="shadow-xl border-primary/10 hover:shadow-2xl transition-shadow duration-300">
         <CardHeader>
-          <CardTitle>Professional Experience & Skills</CardTitle>
-          <CardDescription>
-            Explore my professional background below. You can view the full resume in a new tab or download it using the buttons.
+          <CardTitle className="text-2xl font-semibold">Professional Experience & Skills</CardTitle>
+          <CardDescription className="text-md text-foreground/70">
+            Explore my professional background. You can view the full resume in a new tab or download it.
             An embedded preview is also available, though some browsers might restrict it.
-            <br />
-            (Ensure 'resume_placeholder.pdf' is in the 'public' folder of your project.)
+            (Ensure 'resume_placeholder.pdf' is in the 'public' folder.)
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="mb-6 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild>
+          <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild className="btn-gradient shadow-md hover:shadow-lg">
               <a href={resumePdfUrl} target="_blank" rel="noopener noreferrer" aria-label="View Charan's Resume in a new tab">
                 <Eye className="mr-2 h-4 w-4" /> View Resume (PDF)
               </a>
             </Button>
-            <Button variant="outline" asChild>
+            <Button variant="outline" asChild className="hover:bg-accent/10 hover:text-accent-foreground hover:border-accent">
               <a href={resumePdfUrl} download={downloadFilename} aria-label="Download Charan's Resume">
                 <Download className="mr-2 h-4 w-4" /> Download Resume
               </a>
             </Button>
           </div>
           
-          <div className="text-center mb-2">
+          <div className="text-center mb-3">
             <p className="text-sm text-muted-foreground">Embedded Preview:</p>
           </div>
-          <div className="aspect-[8.5/11] w-full max-w-4xl mx-auto border rounded-lg overflow-hidden bg-muted">
+          <div className="aspect-[8.5/11] w-full max-w-4xl mx-auto border-2 border-primary/20 rounded-lg overflow-hidden bg-muted shadow-inner">
             <iframe
               src={resumePdfUrl}
               title="Charan's Resume Preview"
@@ -48,12 +76,12 @@ export default function ResumeSection() {
               aria-label="Embedded Resume PDF Preview"
             />
           </div>
-          <p className="text-center text-sm text-muted-foreground mt-4">
-            If the preview above is blank or shows an error, please use the 
+          <p className="text-center text-sm text-muted-foreground mt-6">
+            If the preview is blank, please use the 
             <a href={resumePdfUrl} target="_blank" rel="noopener noreferrer" className="underline font-medium text-primary hover:text-primary/80 mx-1">
-              View Resume (PDF)
+              View Resume
             </a> 
-            button to open it directly in a new tab, or download it.
+            button.
           </p>
         </CardContent>
       </Card>

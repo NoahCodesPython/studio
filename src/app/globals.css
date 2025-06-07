@@ -5,73 +5,95 @@
 
 @layer base {
   :root {
-    --background: 220 13% 95%; /* Light Gray */
-    --foreground: 220 10% 20%; /* Dark Gray for text */
-    --card: 0 0% 100%; /* White cards */
-    --card-foreground: 220 10% 20%;
+    --background: 0 0% 100%; /* Clean White */
+    --foreground: 240 10% 3.9%; /* Dark Blue-Gray for text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 220 10% 20%;
-    --primary: 231 48% 48%; /* Deep Indigo */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
-    --secondary: 220 10% 90%; /* Lighter gray for secondary elements */
-    --secondary-foreground: 220 10% 15%;
-    --muted: 220 10% 85%;
-    --muted-foreground: 220 10% 40%;
-    --accent: 187 100% 42%; /* Cyan */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 262.1 83.3% 57.8%; /* Vibrant Violet */
+    --primary-foreground: 0 0% 98%; /* Light text on primary */
+
+    --secondary: 240 4.8% 95.9%; /* Light Gray for secondary elements */
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 34.9 98.6% 50.8%; /* Bright Orange */
+    --accent-foreground: 0 0% 98%; /* Light text on accent */
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 10% 88%;
-    --input: 220 10% 92%;
-    --ring: 231 48% 48%; /* Deep Indigo for rings */
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%; 
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 262.1 83.3% 57.8%; /* Vibrant Violet for rings */
+
+    --radius: 0.75rem; /* Slightly more rounded */
+
+    --chart-1: 262 70% 50%;
+    --chart-2: 32 90% 55%;
+    --chart-3: 160 60% 45%;
+    --chart-4: 200 75% 50%;
+    --chart-5: 290 65% 55%;
+
+    --sidebar-background: 240 5.9% 10%; 
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 262.1 83.3% 57.8%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 3.7% 20%;
+    --sidebar-ring: 262.1 83.3% 57.8%;
   }
+
   .dark {
-    --background: 230 15% 18%; /* Dark bluish gray */
-    --foreground: 220 10% 85%; /* Light gray text */
-    --card: 230 15% 22%; /* Slightly lighter dark cards */
-    --card-foreground: 220 10% 85%;
-    --popover: 230 15% 18%;
-    --popover-foreground: 220 10% 85%;
-    --primary: 231 48% 58%; /* Slightly lighter Deep Indigo for dark mode */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 230 15% 25%;
-    --secondary-foreground: 220 10% 85%;
-    --muted: 230 15% 30%;
-    --muted-foreground: 220 10% 60%;
-    --accent: 187 100% 52%; /* Slightly lighter Cyan for dark mode */
-    --accent-foreground: 230 15% 10%; /* Dark text on accent for contrast */
+    --background: 240 10% 3.9%; /* Very Dark Blue-Gray */
+    --foreground: 0 0% 95%; /* Light Gray text */
+
+    --card: 240 4% 10%; /* Darker cards */
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 262.1 83.3% 62.8%; /* Slightly lighter Violet for dark mode */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%; /* Darker Gray for secondary */
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 34.9 98.6% 55.8%; /* Slightly lighter Orange for dark mode */
+    --accent-foreground: 240 10% 3.9%; /* Dark text on accent for contrast */
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 230 15% 28%;
-    --input: 230 15% 32%;
-    --ring: 231 48% 58%; /* Lighter Deep Indigo for rings */
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%; 
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 262.1 83.3% 62.8%; /* Lighter Violet for rings */
+
+    --chart-1: 262 75% 65%;
+    --chart-2: 32 95% 60%;
+    --chart-3: 160 65% 50%;
+    --chart-4: 200 80% 55%;
+    --chart-5: 290 70% 60%;
+
+    --sidebar-background: 240 8% 6%; 
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 262.1 83.3% 62.8%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 3.7% 11.9%;
+    --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 262.1 83.3% 62.8%;
   }
 }
 
@@ -82,12 +104,16 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-geist-sans);
+    @apply antialiased; /* Ensure smooth fonts */
+  }
+  section { /* Add some default padding to sections */
+    @apply py-16 md:py-24;
   }
 }
 
 @layer components {
   .welcome-overlay {
-    @apply fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-500 ease-in-out;
+    @apply fixed inset-0 bg-background/80 backdrop-blur-md flex items-center justify-center z-50 transition-opacity duration-500 ease-in-out;
   }
 
   .welcome-overlay.closing {
@@ -96,23 +122,16 @@
   }
 
   .animated-welcome-card {
-    /* Shadcn Card already provides bg-card, text-card-foreground, rounded-lg, shadow-sm.
-       p-6 is default for CardHeader, CardContent etc. We add a stronger shadow and animation. */
-    @apply shadow-xl; 
-    animation: subtle-glow 2.5s infinite alternate ease-in-out;
+    @apply shadow-2xl; /* Enhanced shadow for more depth */
+    animation: subtle-glow 3s infinite alternate ease-in-out;
   }
 
   @keyframes subtle-glow {
     0% {
-      /* Using theme variables for shadows if possible, or general shadow syntax */
-      /* Start with card's base shadow plus a subtle primary glow */
-      box-shadow: 0 1px 3px 0 hsl(var(--primary)/0.1), 0 1px 2px -1px hsl(var(--primary)/0.1), /* base shadow parts */
-                  0 0 2px hsl(var(--primary)/0.4), 0 0 4px hsl(var(--primary)/0.3), 0 0 6px hsl(var(--primary)/0.2);
+      box-shadow: 0 0 15px -5px hsl(var(--primary)/0.3), 0 0 30px -10px hsl(var(--primary)/0.2), 0 4px 6px -1px hsl(var(--card-foreground)/0.05);
     }
     100% {
-      /* Enhance shadow and glow */
-      box-shadow: 0 10px 15px -3px hsl(var(--primary)/0.15), 0 4px 6px -4px hsl(var(--primary)/0.1), /* enhanced shadow parts */
-                  0 0 5px hsl(var(--primary)/0.6), 0 0 8px hsl(var(--primary)/0.5), 0 0 10px hsl(var(--primary)/0.4);
+      box-shadow: 0 0 25px -5px hsl(var(--primary)/0.5), 0 0 40px -10px hsl(var(--primary)/0.3), 0 10px 15px -3px hsl(var(--card-foreground)/0.08);
     }
   }
 
@@ -121,11 +140,31 @@
   }
 
   .main-content.blurred {
-    filter: blur(5px);
+    filter: blur(8px); /* Slightly stronger blur */
     @apply pointer-events-none;
   }
 
   .custom-welcome-message {
     @apply text-center mt-6 text-lg text-foreground/80;
+  }
+
+  /* Animation for sections scrolling into view */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Enhanced button styling */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground;
+  }
+  .btn-gradient:hover {
+    @apply shadow-lg brightness-110;
   }
 }
