@@ -34,22 +34,22 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
     {
       name: "LinkedIn",
       url: "#", // Replace with your actual LinkedIn URL
-      icon: <Linkedin className="h-20 w-20" />,
+      icon: <Linkedin className="h-24 w-24" />,
     },
     {
       name: "GitHub",
       url: "#", // Replace with your actual GitHub URL
-      icon: <Github className="h-20 w-20" />,
+      icon: <Github className="h-24 w-24" />,
     },
     {
       name: "Discord",
       url: "#", // Replace with your Discord invite or server link
-      icon: <DiscordIcon className="h-20 w-20" />,
+      icon: <DiscordIcon className="h-24 w-24" />,
     },
     {
       name: "YouTube",
       url: "#", // Replace with your actual YouTube URL
-      icon: <Youtube className="h-20 w-20" />,
+      icon: <Youtube className="h-24 w-24" />,
     },
   ];
 
@@ -94,7 +94,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${ownerName}'s ${link.name} profile`}
-                    className="p-2"
+                    className="p-2" 
                   >
                     {link.icon}
                   </a>
