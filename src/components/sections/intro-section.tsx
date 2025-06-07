@@ -92,7 +92,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                     aria-label={`Visit ${ownerName}'s ${link.name} profile`}
                     className="p-3 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                   >
-                    <Icon className="h-10 w-10" />
+                    <Icon className="h-5 w-5" />
                   </a>
                 );
               })}
