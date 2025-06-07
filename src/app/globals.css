@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* Clean White */
+    --background: 0 0% 96.1%; /* Light Gray (#F0F2F5 from PRD) */
     --foreground: 240 10% 3.9%; /* Dark Blue-Gray for text */
 
     --card: 0 0% 100%;
@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 262.1 83.3% 57.8%; /* Vibrant Violet */
+    --primary: 221 44% 48%; /* Deep Indigo (#3F51B5 from PRD) */
     --primary-foreground: 0 0% 98%; /* Light text on primary */
 
     --secondary: 240 4.8% 95.9%; /* Light Gray for secondary elements */
@@ -23,7 +23,7 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 175 70% 40%; /* Teal/Cyan */
+    --accent: 187 100% 42%; /* Cyan (#00BCD4 from PRD) */
     --accent-foreground: 0 0% 98%; /* Light text on accent */
 
     --destructive: 0 84.2% 60.2%;
@@ -31,24 +31,29 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 262.1 83.3% 57.8%; /* Vibrant Violet for rings */
+    --ring: 221 44% 48%; /* Deep Indigo for rings */
 
     --radius: 0.75rem; /* Slightly more rounded */
 
-    --chart-1: 262 70% 50%;
-    --chart-2: 175 70% 45%; /* Updated to teal for chart consistency */
+    --chart-1: 221 44% 58%; 
+    --chart-2: 187 80% 52%; 
     --chart-3: 160 60% 45%;
     --chart-4: 200 75% 50%;
     --chart-5: 290 65% 55%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 262.1 83.3% 57.8%;
+    --sidebar-primary: 221 44% 48%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 240 3.7% 20%;
-    --sidebar-ring: 262.1 83.3% 57.8%;
+    --sidebar-ring: 221 44% 48%;
+
+    /* Scrollbar variables */
+    --scrollbar-thumb-color: 240 4% 50%; /* Medium Gray for light mode */
+    --scrollbar-thumb-opacity: 0.5;
+    --scrollbar-track-opacity: 0.2;
   }
 
   .dark {
@@ -61,7 +66,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 262.1 83.3% 62.8%; /* Slightly lighter Violet for dark mode */
+    --primary: 221 44% 58%; /* Lighter Deep Indigo for dark mode */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 3.7% 15.9%; /* Darker Gray for secondary */
@@ -70,30 +75,35 @@
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: 175 65% 45%; /* Teal/Cyan for dark mode */
-    --accent-foreground: 0 0% 98%; /* Light text on accent */
+    --accent: 187 80% 52%; /* Lighter Cyan for dark mode */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 262.1 83.3% 62.8%; /* Lighter Violet for rings */
+    --ring: 221 44% 58%; /* Lighter Deep Indigo for rings */
 
-    --chart-1: 262 75% 65%;
-    --chart-2: 175 65% 50%; /* Updated to teal for chart consistency */
+    --chart-1: 221 44% 68%;
+    --chart-2: 187 70% 62%;
     --chart-3: 160 65% 50%;
     --chart-4: 200 80% 55%;
     --chart-5: 290 70% 60%;
 
     --sidebar-background: 240 8% 6%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 262.1 83.3% 62.8%;
+    --sidebar-primary: 221 44% 58%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 3.7% 11.9%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 262.1 83.3% 62.8%;
+    --sidebar-ring: 221 44% 58%;
+
+    /* Scrollbar variables for dark mode */
+    --scrollbar-thumb-color: 240 4% 25%; /* Darker Gray for dark mode scrollbar thumb */
+    --scrollbar-thumb-opacity: 0.7;
+    --scrollbar-track-opacity: 0.1;
   }
 }
 
@@ -116,22 +126,22 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: hsl(var(--background) / 0.5);
+    background: hsl(var(--background) / var(--scrollbar-track-opacity));
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.6);
+    background: hsl(var(--scrollbar-thumb-color) / var(--scrollbar-thumb-opacity));
     border-radius: 10px;
     border: 2px solid transparent;
     background-clip: content-box;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.8);
+    background: hsl(var(--scrollbar-thumb-color) / calc(var(--scrollbar-thumb-opacity) + 0.2));
   }
   /* For Firefox */
   html {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--primary) / 0.6) hsl(var(--background) / 0.5);
+    scrollbar-color: hsl(var(--scrollbar-thumb-color) / var(--scrollbar-thumb-opacity)) hsl(var(--background) / var(--scrollbar-track-opacity));
   }
 
 }
@@ -153,10 +163,10 @@
 
   @keyframes subtle-glow {
     0% {
-      box-shadow: 0 0 15px -5px hsl(var(--primary)/0.3), 0 0 30px -10px hsl(var(--primary)/0.2), 0 4px 6px -1px hsl(var(--card-foreground)/0.05);
+      box-shadow: 0 0 15px -5px hsl(var(--primary)/0.2), 0 0 30px -10px hsl(var(--primary)/0.1), 0 4px 6px -1px hsl(var(--card-foreground)/0.03);
     }
     100% {
-      box-shadow: 0 0 25px -5px hsl(var(--primary)/0.5), 0 0 40px -10px hsl(var(--primary)/0.3), 0 10px 15px -3px hsl(var(--card-foreground)/0.08);
+      box-shadow: 0 0 25px -5px hsl(var(--primary)/0.4), 0 0 40px -10px hsl(var(--primary)/0.2), 0 10px 15px -3px hsl(var(--card-foreground)/0.06);
     }
   }
 
