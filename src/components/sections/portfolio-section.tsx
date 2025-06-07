@@ -32,8 +32,8 @@ const initialProjectsData: Project[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'community chat app',
     tags: ['Discord.js', 'Node.js', 'JavaScript', 'Community'],
-    liveLink: '#', 
-    codeLink: '#',
+    liveLink: 'https://discord.com/api/oauth2/authorize?client_id=816987224662999040&permissions=8&scope=bot%20applications.commands', 
+    codeLink: 'https://github.com/NoahCodesPython/Aquire',
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
   },
@@ -45,7 +45,7 @@ const initialProjectsData: Project[] = [
     dataAiHint: 'modern web design code',
     tags: ['Next.js', 'React', 'Tailwind', 'ShadCN', 'Genkit'],
     liveLink: '#', 
-    codeLink: '#',
+    codeLink: '#', // Assuming this portfolio's code isn't public by default, or you'll provide it.
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
   },
@@ -56,7 +56,7 @@ const initialProjectsData: Project[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'data charts graphs python',
     tags: ['Python', 'MySQL', 'Data Analysis', 'Pandas', 'Matplotlib'],
-    codeLink: '#', 
+    codeLink: '#', // Replace with actual link if available
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
   },
@@ -195,4 +195,3 @@ export default function PortfolioSection() {
     </section>
   );
 }
-
