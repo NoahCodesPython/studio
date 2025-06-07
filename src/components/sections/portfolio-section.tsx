@@ -176,7 +176,7 @@ export default function PortfolioSection() {
             <CardFooter className="flex justify-start gap-3 pt-0 border-t border-border/50 p-4">
               {project.liveLink && (
                 <Button variant="default" size="sm" asChild className="btn-gradient shadow-md hover:shadow-lg primary-glow interactive-scale">
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                  <a href={project.liveLink} target={project.liveLink === "#" ? "_self" : "_blank"} rel="noopener noreferrer">
                     Live Demo <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
