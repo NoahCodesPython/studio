@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { cn } from "@/lib/utils";
 
 export default function ResumeSection() {
-  const resumePdfUrl = "/resume_placeholder.pdf"; 
+  const resumePdfUrl = "/resume_placeholder.pdf";
   const downloadFilename = "Charan_Nihaal_R_Resume.pdf";
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -16,28 +16,27 @@ export default function ResumeSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
+        // Update visibility state based on whether the element is intersecting
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 } // Trigger when 10% of the element is visible
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
 
   return (
-    <section 
-      id="resume" 
+    <section
+      id="resume"
       ref={sectionRef}
       className={cn("container mx-auto px-4 animate-on-scroll", isVisible ? "is-visible" : "")}
     >
@@ -64,7 +63,7 @@ export default function ResumeSection() {
               </a>
             </Button>
           </div>
-          
+
           <div className="text-center mb-3">
             <p className="text-sm text-muted-foreground">Embedded Preview:</p>
           </div>
@@ -77,10 +76,10 @@ export default function ResumeSection() {
             />
           </div>
           <p className="text-center text-sm text-muted-foreground mt-6">
-            If the preview is blank, please use the 
+            If the preview is blank, please use the
             <a href={resumePdfUrl} target="_blank" rel="noopener noreferrer" className="underline font-medium text-primary hover:text-primary/80 mx-1">
               View Resume
-            </a> 
+            </a>
             button.
           </p>
         </CardContent>

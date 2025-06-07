@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react"; 
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "../ui/button";
 import { generateProjectImage, type GenerateProjectImageInput } from '@/ai/flows/generate-project-image';
 import { Skeleton } from "@/components/ui/skeleton";
@@ -18,8 +18,8 @@ interface Project {
   imageUrl: string;
   dataAiHint: string;
   tags: string[];
-  liveLink?: string; 
-  codeLink?: string; 
+  liveLink?: string;
+  codeLink?: string;
   currentImageUrl: string;
   isLoadingImage: boolean;
 }
@@ -32,7 +32,7 @@ const initialProjectsData: Project[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'community chat app',
     tags: ['Discord.js', 'Node.js', 'JavaScript', 'Community'],
-    liveLink: 'https://discord.com/api/oauth2/authorize?client_id=816987224662999040&permissions=8&scope=bot%20applications.commands', 
+    liveLink: 'https://discord.com/api/oauth2/authorize?client_id=816987224662999040&permissions=8&scope=bot%20applications.commands',
     codeLink: 'https://github.com/NoahCodesPython/Aquire',
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
@@ -44,7 +44,7 @@ const initialProjectsData: Project[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'modern web design code',
     tags: ['Next.js', 'React', 'Tailwind', 'ShadCN', 'Genkit'],
-    liveLink: '#', 
+    liveLink: '#',
     codeLink: '#', // Assuming this portfolio's code isn't public by default, or you'll provide it.
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
@@ -76,10 +76,10 @@ const initialProjectsData: Project[] = [
 
 export default function PortfolioSection() {
   const [projects, setProjects] = useState<Project[]>(
-    initialProjectsData.map(p => ({ 
-      ...p, 
-      currentImageUrl: p.imageUrl, 
-      isLoadingImage: true 
+    initialProjectsData.map(p => ({
+      ...p,
+      currentImageUrl: p.imageUrl,
+      isLoadingImage: true
     }))
   );
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -88,21 +88,20 @@ export default function PortfolioSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
+        // Update visibility state based on whether the element is intersecting
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 } // Trigger when 10% of the element is visible
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -114,7 +113,7 @@ export default function PortfolioSection() {
           const promptText = `A stunning, professional digital art image for a software project card. Project Title: "${projectData.title}". Keywords for style/content: ${projectData.dataAiHint}. Focus on a modern, clean, vibrant aesthetic suitable for a tech portfolio. Aspect ratio 16:9.`;
           const input: GenerateProjectImageInput = { prompt: promptText };
           const result = await generateProjectImage(input);
-          
+
           if (result.imageDataUri && result.imageDataUri.startsWith('data:image')) {
             return { ...projectData, currentImageUrl: result.imageDataUri, isLoadingImage: false };
           }
@@ -128,21 +127,21 @@ export default function PortfolioSection() {
       const resolvedProjects = await Promise.all(updatedProjectsPromises);
       setProjects(resolvedProjects);
     };
-    
+
     fetchImages();
   }, []);
 
   return (
-    <section 
-      id="portfolio" 
+    <section
+      id="portfolio"
       ref={sectionRef}
       className={cn("container mx-auto px-4 animate-on-scroll", isVisible ? "is-visible" : "")}
     >
       <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-20 tracking-tight">My Work</h2> {/* Increased margin-bottom */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project) => (
-          <Card 
-            key={project.id} 
+          <Card
+            key={project.id}
             className="group flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-[1.03] border border-primary/10 hover:border-primary/40" /* Added hover:scale and stronger hover border */
           >
             <div className="relative w-full h-52 bg-muted flex items-center justify-center overflow-hidden">
@@ -195,4 +194,3 @@ export default function PortfolioSection() {
     </section>
   );
 }
-
