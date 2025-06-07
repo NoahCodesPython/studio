@@ -1,20 +1,17 @@
 
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Poppins } from 'next/font/google'; // Changed from Geist
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/layout/header';
 import { Toaster } from '@/components/ui/toaster';
 import BackgroundParticles from '@/components/background-particles';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const poppins = Poppins({ // Changed from Geist
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['300', '400', '500', '600', '700', '800']
 });
 
 export const metadata: Metadata = {
@@ -29,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased text-foreground bg-background`} suppressHydrationWarning>
+      <body className={`${poppins.variable} antialiased text-foreground bg-background`} suppressHydrationWarning> {/* Updated font variable */}
         <ThemeProvider defaultTheme="system" storageKey="charan-portfolio-theme">
           <BackgroundParticles />
           <Header />
