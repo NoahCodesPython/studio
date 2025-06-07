@@ -39,7 +39,7 @@ export default function Header() {
             <CodeXml className="h-7 w-7 transition-transform duration-300 group-hover:rotate-12" />
             Charan
           </Link>
-          <nav className="hidden md:flex space-x-1">
+          <nav className="hidden md:flex flex-1 justify-center space-x-1">
             {navLinks.map((link) => (
               <Button key={link.href} variant="ghost" asChild
                 className="hover:bg-accent/20"
@@ -59,3 +59,4 @@ export default function Header() {
     </header>
   );
 }
+
