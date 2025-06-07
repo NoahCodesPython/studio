@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 270 70% 60%; /* New: Purple */
+    --primary: 270 70% 60%; /* Purple */
     --primary-foreground: 0 0% 98%; /* Light text on primary */
 
     --secondary: 240 4.8% 95.9%; /* Light Gray for secondary elements */
@@ -23,32 +23,32 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 187 100% 42%; /* Teal/Cyan */
-    --accent-foreground: 0 0% 98%; /* Light text on accent */
+    --accent: 240 10% 15%; /* Dark Gray, almost black */
+    --accent-foreground: 0 0% 96.1%; /* Light Gray text on accent */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 270 70% 60%; /* New: Purple for rings */
+    --ring: 270 70% 60%; /* Purple for rings */
 
     --radius: 0.75rem; /* Slightly more rounded */
 
-    --chart-1: 270 70% 70%; /* New: Lighter Purple for charts */
-    --chart-2: 187 80% 52%; 
+    --chart-1: 270 70% 70%; /* Lighter Purple for charts */
+    --chart-2: 240 4% 60%; /* Neutral Medium Gray */
     --chart-3: 160 60% 45%;
     --chart-4: 200 75% 50%;
     --chart-5: 290 65% 55%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 270 70% 60%; /* New: Purple */
+    --sidebar-primary: 270 70% 60%; /* Purple */
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 240 3.7% 20%;
-    --sidebar-ring: 270 70% 60%; /* New: Purple */
+    --sidebar-ring: 270 70% 60%; /* Purple */
 
     /* Scrollbar variables */
     --scrollbar-thumb-color: 240 4% 50%; /* Medium Gray for light mode */
@@ -66,7 +66,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 270 75% 70%; /* New: Brighter Purple for dark mode */
+    --primary: 270 75% 70%; /* Brighter Purple for dark mode */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 3.7% 15.9%; /* Darker Gray for secondary */
@@ -75,30 +75,30 @@
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: 187 80% 52%; /* Lighter Teal/Cyan for dark mode */
-    --accent-foreground: 0 0% 98%;
+    --accent: 240 5% 20%; /* Dark Gray for dark mode accent */
+    --accent-foreground: 0 0% 95%; /* Light Gray text on accent */
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 270 75% 70%; /* New: Brighter Purple for rings */
+    --ring: 270 75% 70%; /* Brighter Purple for rings */
 
-    --chart-1: 270 75% 80%; /* New: Lighter Brighter Purple for charts */
-    --chart-2: 187 70% 62%;
+    --chart-1: 270 75% 80%; /* Lighter Brighter Purple for charts */
+    --chart-2: 240 4% 40%; /* Darker Neutral Medium Gray */
     --chart-3: 160 65% 50%;
     --chart-4: 200 80% 55%;
     --chart-5: 290 70% 60%;
 
     --sidebar-background: 240 8% 6%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 270 75% 70%; /* New: Brighter Purple */
+    --sidebar-primary: 270 75% 70%; /* Brighter Purple */
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 3.7% 11.9%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 270 75% 70%; /* New: Brighter Purple */
+    --sidebar-ring: 270 75% 70%; /* Brighter Purple */
 
     /* Scrollbar variables for dark mode */
     --scrollbar-thumb-color: 240 4% 25%; /* Darker Gray for dark mode scrollbar thumb */
@@ -203,4 +203,3 @@
     @apply shadow-lg brightness-110;
   }
 }
-
