@@ -60,6 +60,18 @@ const initialProjectsData: Project[] = [
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
   },
+  {
+    id: 4,
+    title: 'Animated Welcome NPM Package',
+    description: 'An npm package that empowers Discord bot developers to create custom, animated welcome GIFs for new server members. Utilizes Node.js and image manipulation.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    dataAiHint: 'discord bot animation',
+    tags: ['NPM', 'Node.js', 'JavaScript', 'Discord', 'GIF', 'Canvas'],
+    liveLink: 'https://www.npmjs.com/package/animated-welcome',
+    codeLink: 'https://github.com/NoahCodesPython/animated-welcome',
+    currentImageUrl: 'https://placehold.co/600x400.png',
+    isLoadingImage: true
+  },
 ];
 
 export default function PortfolioSection() {
@@ -183,3 +195,4 @@ export default function PortfolioSection() {
     </section>
   );
 }
+
