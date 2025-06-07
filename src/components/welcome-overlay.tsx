@@ -57,8 +57,8 @@ const WelcomeOverlay: FC<WelcomeOverlayProps> = ({
     >
       <Card className="w-full max-w-md animated-welcome-card" aria-labelledby="welcome-heading">
         <CardHeader>
-          <CardTitle id="welcome-heading">{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
+          <CardTitle id="welcome-heading" className="text-xl font-semibold">{title}</CardTitle>
+          <CardDescription className="text-sm">{description}</CardDescription>
         </CardHeader>
         <CardContent>
           <Input
@@ -68,11 +68,11 @@ const WelcomeOverlay: FC<WelcomeOverlayProps> = ({
             value={inputValue}
             onChange={handleInputChange}
             aria-label={inputPlaceholder}
-            className="w-full"
+            className="w-full text-sm" // Ensure input text is also scaled appropriately
           />
         </CardContent>
         <CardFooter className="flex flex-col sm:flex-row justify-end gap-2 pt-6">
-          <Button variant="ghost" onClick={handleSkip}>
+          <Button variant="outline" onClick={handleSkip}> {/* Changed to outline */}
             {skipButtonText}
           </Button>
           <Button onClick={handleConfirm} disabled={!inputValue.trim()}>

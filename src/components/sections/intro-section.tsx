@@ -4,7 +4,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Linkedin, Github, Youtube } from "lucide-react";
-import { Button } from "@/components/ui/button"; // Added Button import
+import { Button } from "@/components/ui/button";
 
 // Define the DiscordIcon component here for use in this file
 const DiscordIcon = ({ className }: { className?: string }) => (
@@ -31,23 +31,23 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
   const socialLinks = [
     {
       name: "LinkedIn",
-      url: "#",
-      icon: <Linkedin className="h-6 w-6" />,
+      url: "#", // Replace with your actual LinkedIn URL
+      icon: <Linkedin className="h-7 w-7" />, // Increased size
     },
     {
       name: "GitHub",
-      url: "#",
-      icon: <Github className="h-6 w-6" />,
+      url: "#", // Replace with your actual GitHub URL
+      icon: <Github className="h-7 w-7" />, // Increased size
     },
     {
       name: "Discord",
-      url: "#",
-      icon: <DiscordIcon className="h-7 w-7" />,
+      url: "#", // Replace with your Discord invite or server link
+      icon: <DiscordIcon className="h-7 w-7" />, // Kept at h-7 w-7
     },
     {
       name: "YouTube",
-      url: "#",
-      icon: <Youtube className="h-6 w-6" />,
+      url: "#", // Replace with your actual YouTube URL
+      icon: <Youtube className="h-7 w-7" />, // Increased size
     },
   ];
 
