@@ -53,14 +53,16 @@ const WelcomeOverlay: FC<WelcomeOverlayProps> = ({
     <div
       role="dialog"
       aria-modal="true"
+      aria-labelledby="welcome-heading" // Existing label by reference
+      aria-label={title} // Direct accessible name as an addition/fallback
       className={className ? `${className} fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md` : "fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md"}
     >
-      <Card className="w-full max-w-md animated-welcome-card" aria-labelledby="welcome-heading">
+      <Card className="w-full max-w-md animated-welcome-card" aria-describedby="welcome-description">
         <CardHeader>
-          <CardTitle id="welcome-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-center tracking-tight"> {/* Adjusted responsive text size */}
+          <CardTitle id="welcome-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-center tracking-tight">
             {title}
           </CardTitle>
-          <CardDescription className="text-sm text-center pt-1">{description}</CardDescription>
+          <CardDescription id="welcome-description" className="text-sm text-center pt-1">{description}</CardDescription>
         </CardHeader>
         <CardContent>
           <Input
@@ -69,8 +71,8 @@ const WelcomeOverlay: FC<WelcomeOverlayProps> = ({
             placeholder={inputPlaceholder}
             value={inputValue}
             onChange={handleInputChange}
-            aria-label={inputPlaceholder}
-            className="w-full text-sm md:text-base py-3"  /* Ensured input text scales reasonably */
+            aria-label={inputPlaceholder} // Label for the input itself
+            className="w-full text-sm md:text-base py-3"
           />
         </CardContent>
         <CardFooter className="flex flex-col sm:flex-row justify-end gap-3 pt-6">
