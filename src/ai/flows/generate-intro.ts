@@ -22,7 +22,7 @@ const GenerateIntroInputSchema = z.object({
 export type GenerateIntroInput = z.infer<typeof GenerateIntroInputSchema>;
 
 const GenerateIntroOutputSchema = z.object({
-  introMessage: z.string().describe('A personalized introductory message.'),
+  introMessage: z.string().describe('A personalized fun and professional introductory message.'),
 });
 export type GenerateIntroOutput = z.infer<typeof GenerateIntroOutputSchema>;
 
@@ -40,7 +40,7 @@ const prompt = ai.definePrompt({
 
   {{#if viewerProfile}}
   The viewer of the portfolio has the following profile: {{{viewerProfile}}}.
-  Create an introductory message that is personalized to them.
+  Create an fun and professional introductory message that is personalized to them.
   {{else}}
   Create a generic but engaging introductory message.
   {{/if}}

@@ -55,8 +55,8 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
   return (
     <section id="home" className="container mx-auto px-4 text-center min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center">
       <div className="max-w-3xl w-full">
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight"> {/* Adjusted responsive text size */}
-          Hi, I&apos;m <span className="text-primary animate-pulse">{ownerName}</span>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+          Hi, I&apos;m <span className="text-primary">{ownerName}</span>
         </h1>
         <p className="text-xl md:text-2xl text-foreground/80 mb-10 leading-relaxed">
           A {ownerProfession} exploring web development, bot creation, and data analysis.
@@ -64,7 +64,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
 
         <Card className="text-left shadow-xl bg-card/80 backdrop-blur-sm border-primary/20 interactive-scale">
           <CardHeader>
-            <CardTitle className="text-xl sm:text-2xl md:text-3xl">Welcome to My Digital Space!</CardTitle> {/* Adjusted responsive text size */}
+            <CardTitle className="text-xl sm:text-2xl md:text-3xl">Welcome to My Digital Space!</CardTitle>
             <CardDescription className="text-md pt-1">I&apos;m excited to share my journey and projects with you.</CardDescription>
           </CardHeader>
           <CardContent>
@@ -80,7 +80,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                 <p className="text-foreground text-lg leading-relaxed whitespace-pre-line">{generatedIntro}</p>
               )}
             </div>
-            <div className="mt-8 flex justify-center space-x-5 md:space-x-6"> {/* Adjusted spacing */}
+            <div className="mt-8 flex justify-center space-x-5 md:space-x-6">
               {socialLinks.map((link) => {
                 const Icon = link.IconComponent;
                 return (
@@ -92,7 +92,7 @@ export default function IntroSection({ ownerName, ownerProfession, generatedIntr
                     aria-label={`Visit ${ownerName}'s ${link.name} profile`}
                     className="p-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 ease-in-out transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                   >
-                    <Icon className="h-5 w-5" /> {/* Set specific size */}
+                    <Icon className="h-5 w-5" />
                   </a>
                 );
               })}
