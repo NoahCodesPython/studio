@@ -87,7 +87,7 @@ const BackgroundParticles: React.FC = () => {
     canvas.height = window.innerHeight || document.documentElement.clientHeight || 300;
 
     const currentParticleColor = resolvedTheme === 'dark' ? 'rgba(200, 200, 200, 0.25)' : 'rgba(50, 50, 50, 0.25)'; // Slightly more transparent
-    const particleCount = 25; // Reduced particle count
+    const particleCount = 50; // Restored particle count
     particlesRef.current = []; 
 
     for (let i = 0; i < particleCount; i++) {
@@ -113,15 +113,13 @@ const BackgroundParticles: React.FC = () => {
 
   useEffect(() => {
     let resizeHandler: () => void;
-    const timer = setTimeout(() => {
-      initializeEffect();
-      // Debounce resize handler or make it simpler if performance is an issue
-      resizeHandler = () => initializeEffect();
-      window.addEventListener('resize', resizeHandler);
-    }, 2500); // Delay initialization
+    // Removed setTimeout for immediate initialization
+    initializeEffect();
+    // Debounce resize handler or make it simpler if performance is an issue
+    resizeHandler = () => initializeEffect();
+    window.addEventListener('resize', resizeHandler);
 
     return () => {
-      clearTimeout(timer);
       if (resizeHandler) {
         window.removeEventListener('resize', resizeHandler);
       }

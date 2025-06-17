@@ -53,8 +53,7 @@ const WelcomeOverlay: FC<WelcomeOverlayProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      aria-labelledby="welcome-heading" // Existing label by reference
-      aria-label={title} // Direct accessible name as an addition/fallback
+      aria-labelledby="welcome-heading" // Reverted to only aria-labelledby
       className={className ? `${className} fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md` : "fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md"}
     >
       <Card className="w-full max-w-md animated-welcome-card" aria-describedby="welcome-description">
@@ -71,7 +70,7 @@ const WelcomeOverlay: FC<WelcomeOverlayProps> = ({
             placeholder={inputPlaceholder}
             value={inputValue}
             onChange={handleInputChange}
-            aria-label={inputPlaceholder} // Label for the input itself
+            aria-label={inputPlaceholder}
             className="w-full text-sm md:text-base py-3"
           />
         </CardContent>
