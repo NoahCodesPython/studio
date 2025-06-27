@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
       }
     ],
   },
-  // Removed security headers function
+  serverComponentsExternalPackages: ['handlebars'],
 };
 
 export default nextConfig;
