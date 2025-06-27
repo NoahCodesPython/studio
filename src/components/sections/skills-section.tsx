@@ -2,35 +2,32 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import {
-  SiNextdotjs,
-  SiReact,
-  SiTailwindcss,
-  SiJavascript,
-  SiPython,
-  SiNodedotjs,
-  SiMysql,
-  SiGit,
-  SiHtml5,
-  SiCss3,
-  SiJava,
-  SiDiscorddotjs,
-} from "react-icons/si";
+  IoLogoJavascript,
+  IoLogoPython,
+  IoLogoReact,
+  IoLogoNodejs,
+  IoLogoHtml5,
+  IoLogoCss3,
+} from 'react-icons/io5';
+import { FaJava, FaGitAlt } from 'react-icons/fa';
+import { TbBrandNextjs, TbBrandTailwind, TbDatabase } from 'react-icons/tb';
+import { BsDiscord } from 'react-icons/bs';
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  { name: "JavaScript", icon: <SiJavascript className="h-10 w-10" /> },
-  { name: "Python", icon: <SiPython className="h-10 w-10" /> },
-  { name: "Java", icon: <SiJava className="h-10 w-10" /> },
-  { name: "React", icon: <SiReact className="h-10 w-10" /> },
-  { name: "Next.js", icon: <SiNextdotjs className="h-10 w-10" /> },
-  { name: "Node.js", icon: <SiNodedotjs className="h-10 w-10" /> },
-  { name: "Tailwind CSS", icon: <SiTailwindcss className="h-10 w-10" /> },
-  { name: "MySQL", icon: <SiMysql className="h-10 w-10" /> },
-  { name: "HTML5", icon: <SiHtml5 className="h-10 w-10" /> },
-  { name: "CSS3", icon: <SiCss3 className="h-10 w-10" /> },
-  { name: "Discord.js", icon: <SiDiscorddotjs className="h-10 w-10" /> },
-  { name: "Git", icon: <SiGit className="h-10 w-10" /> },
+  { name: "JavaScript", icon: <IoLogoJavascript className="h-10 w-10" /> },
+  { name: "Python", icon: <IoLogoPython className="h-10 w-10" /> },
+  { name: "Java", icon: <FaJava className="h-10 w-10" /> },
+  { name: "React", icon: <IoLogoReact className="h-10 w-10" /> },
+  { name: "Next.js", icon: <TbBrandNextjs className="h-10 w-10" /> },
+  { name: "Node.js", icon: <IoLogoNodejs className="h-10 w-10" /> },
+  { name: "Tailwind CSS", icon: <TbBrandTailwind className="h-10 w-10" /> },
+  { name: "MySQL", icon: <TbDatabase className="h-10 w-10" /> },
+  { name: "HTML5", icon: <IoLogoHtml5 className="h-10 w-10" /> },
+  { name: "CSS3", icon: <IoLogoCss3 className="h-10 w-10" /> },
+  { name: "Discord", icon: <BsDiscord className="h-10 w-10" /> },
+  { name: "Git", icon: <FaGitAlt className="h-10 w-10" /> },
 ];
 
 export default function SkillsSection() {
