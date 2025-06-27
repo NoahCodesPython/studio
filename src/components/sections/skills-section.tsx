@@ -13,7 +13,7 @@ import {
   SiHtml5,
   SiCss3,
   SiJava,
-  SiDiscord
+  SiDiscorddotjs,
 } from "react-icons/si";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -29,7 +29,7 @@ const skills = [
   { name: "MySQL", icon: <SiMysql className="h-10 w-10" /> },
   { name: "HTML5", icon: <SiHtml5 className="h-10 w-10" /> },
   { name: "CSS3", icon: <SiCss3 className="h-10 w-10" /> },
-  { name: "Discord.js", icon: <SiDiscord className="h-10 w-10" /> },
+  { name: "Discord.js", icon: <SiDiscorddotjs className="h-10 w-10" /> },
   { name: "Git", icon: <SiGit className="h-10 w-10" /> },
 ];
 
