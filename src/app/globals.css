@@ -5,103 +5,101 @@
 
 @layer base {
   :root {
-    --background: 0 0% 96.1%; /* Light Gray (#F0F2F5) */
-    --foreground: 240 10% 3.9%; /* Dark Blue-Gray for text */
+    --background: 220 17% 96%; /* Light Gray (#F0F2F5) */
+    --foreground: 222 47% 11%; /* Dark Blue-Gray for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 269 27% 49%; /* Purple */
-    --primary-foreground: 0 0% 98%; /* Light text on primary */
+    --primary: 231 48% 48%; /* Deep Indigo (#3F51B5) */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 4.8% 95.9%; /* Light Gray for secondary elements */
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 220 17% 91%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 220 17% 91%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 240 10% 15%; /* Dark Gray, almost black */
-    --accent-foreground: 0 0% 96.1%; /* Light Gray text on accent */
+    --accent: 187 100% 42%; /* Cyan (#00BCD4) */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 270 70% 60%; /* Purple for rings */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 231 48% 48%;
 
-    --radius: 0.75rem; /* Slightly more rounded */
+    --radius: 0.75rem;
 
-    --chart-1: 270 70% 70%; /* Lighter Purple for charts */
-    --chart-2: 240 4% 60%; /* Neutral Medium Gray */
+    --chart-1: 231 48% 48%;
+    --chart-2: 187 100% 42%;
     --chart-3: 160 60% 45%;
     --chart-4: 200 75% 50%;
     --chart-5: 290 65% 55%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 270 70% 60%; /* Purple */
+    --sidebar-primary: 231 48% 48%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 240 3.7% 20%;
-    --sidebar-ring: 270 70% 60%; /* Purple */
+    --sidebar-ring: 231 48% 48%;
 
-    /* Scrollbar variables */
-    --scrollbar-thumb-color: 240 4% 50%; /* Medium Gray for light mode scrollbar thumb */
-    --scrollbar-thumb-opacity: 0.6; /* Increased opacity */
-    --scrollbar-track-opacity: 0.1; /* Slightly less visible track */
+    --scrollbar-thumb-color: 220 9% 55%;
+    --scrollbar-thumb-opacity: 0.6;
+    --scrollbar-track-opacity: 0.1;
   }
 
   .dark {
-    --background: 240 10% 3.9%; /* Very Dark Blue-Gray */
-    --foreground: 0 0% 95%; /* Light Gray text */
+    --background: 222 47% 11%; /* Dark Blue */
+    --foreground: 210 40% 98%;
 
-    --card: 240 4% 10%; /* Darker cards */
-    --card-foreground: 0 0% 95%;
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 270 75% 70%; /* Brighter Purple for dark mode */
+    --primary: 231 48% 60%; /* Brighter Indigo */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 3.7% 15.9%; /* Darker Gray for secondary */
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 240 5% 20%; /* Dark Gray for dark mode accent */
-    --accent-foreground: 0 0% 95%; /* Light Gray text on accent */
+    --accent: 187 100% 50%; /* Brighter Cyan */
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 270 75% 70%; /* Brighter Purple for rings */
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 231 48% 60%;
 
-    --chart-1: 270 75% 80%; /* Lighter Brighter Purple for charts */
-    --chart-2: 240 4% 40%; /* Darker Neutral Medium Gray */
+    --chart-1: 231 48% 60%;
+    --chart-2: 187 100% 50%;
     --chart-3: 160 65% 50%;
     --chart-4: 200 80% 55%;
     --chart-5: 290 70% 60%;
 
-    --sidebar-background: 240 8% 6%;
+    --sidebar-background: 222 47% 8%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 270 75% 70%; /* Brighter Purple */
+    --sidebar-primary: 231 48% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 3.7% 11.9%;
+    --sidebar-accent: 217 33% 13%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 270 75% 70%; /* Brighter Purple */
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 231 48% 60%;
 
-    /* Scrollbar variables for dark mode */
-    --scrollbar-thumb-color: 240 4% 35%; /* Darker Gray for dark mode scrollbar thumb */
+    --scrollbar-thumb-color: 215 20% 45%;
     --scrollbar-thumb-opacity: 0.7;
     --scrollbar-track-opacity: 0.1;
   }
@@ -113,16 +111,16 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-poppins); /* Changed from --font-geist-sans */
-    @apply antialiased; /* Ensure smooth fonts */
+    font-family: var(--font-poppins);
+    @apply antialiased;
   }
-  section { /* Add some default padding to sections */
-    @apply py-20 md:py-28; /* Increased padding */
+  section {
+    @apply py-20 md:py-28;
   }
 
   /* Custom Scrollbar Styling */
   ::-webkit-scrollbar {
-    width: 10px; /* Slightly wider */
+    width: 10px;
     height: 10px;
   }
   ::-webkit-scrollbar-track {
@@ -132,13 +130,12 @@
   ::-webkit-scrollbar-thumb {
     background: hsl(var(--scrollbar-thumb-color) / var(--scrollbar-thumb-opacity));
     border-radius: 10px;
-    border: 2.5px solid transparent; /* Slightly thicker border for better visual separation */
+    border: 2.5px solid transparent;
     background-clip: content-box;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--scrollbar-thumb-color) / calc(var(--scrollbar-thumb-opacity) + 0.25)); /* More visible on hover */
+    background: hsl(var(--scrollbar-thumb-color) / calc(var(--scrollbar-thumb-opacity) + 0.25));
   }
-  /* For Firefox */
   html {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--scrollbar-thumb-color) / var(--scrollbar-thumb-opacity)) hsl(var(--background) / var(--scrollbar-track-opacity));
@@ -148,7 +145,7 @@
 
 @layer components {
   .welcome-overlay {
-    @apply fixed inset-0 bg-background/80 backdrop-blur-lg flex items-center justify-center z-50 transition-opacity duration-500 ease-in-out; /* Increased blur */
+    @apply fixed inset-0 bg-background/80 backdrop-blur-lg flex items-center justify-center z-50 transition-opacity duration-500 ease-in-out;
   }
 
   .welcome-overlay.closing {
@@ -157,7 +154,7 @@
   }
 
   .animated-welcome-card {
-    @apply shadow-2xl border border-primary/20; /* Added subtle border */
+    @apply shadow-2xl border border-primary/20;
     animation: subtle-glow 3.5s infinite alternate ease-in-out;
   }
 
@@ -175,7 +172,7 @@
   }
 
   .main-content.blurred {
-    filter: blur(10px); /* Slightly stronger blur */
+    filter: blur(10px);
     @apply pointer-events-none;
   }
 
@@ -186,8 +183,8 @@
   /* Animation for sections scrolling into view */
   .animate-on-scroll {
     opacity: 0;
-    transform: translateY(40px) scale(0.98); /* Added subtle scale */
-    transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); /* Smoother easing and shorter duration */
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
   .animate-on-scroll.is-visible {
@@ -200,7 +197,7 @@
     @apply bg-gradient-to-r from-primary to-accent text-primary-foreground transition-all duration-300 ease-in-out transform hover:scale-105;
   }
   .btn-gradient:hover {
-    @apply shadow-xl brightness-110; /* More pronounced shadow */
+    @apply shadow-xl brightness-110;
   }
 
   /* General interactive element hover scale */

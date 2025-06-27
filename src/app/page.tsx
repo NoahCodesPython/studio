@@ -9,6 +9,7 @@ import ContactSection from "@/components/sections/contact-section";
 import { Separator } from "@/components/ui/separator";
 import WelcomeOverlay from '@/components/welcome-overlay';
 import { generateIntro, type GenerateIntroInput } from '@/ai/flows/generate-intro';
+import SkillsSection from '@/components/sections/skills-section';
 
 const ownerInfo = {
   name: "Charan Nihaal",
@@ -23,19 +24,17 @@ export default function Home() {
   const [isGeneratingIntro, setIsGeneratingIntro] = useState(false);
   const [initialLoadDone, setInitialLoadDone] = useState(false);
 
-  // Default welcome message for skip or initial load before AI
   const defaultWelcomeMessage = `Hello! I'm ${ownerInfo.name}, a ${ownerInfo.profession} passionate about technology. I enjoy building Discord bots, crafting webpages with HTML & CSS, and I'm currently advancing my Python skills, learning Java, and honing my JavaScript abilities. I'm also developing my expertise in MySQL and Data Analysis. Explore my projects and connect with me!`;
 
   useEffect(() => {
-    // Set a default message initially so something is always shown
     setIntroMessage(defaultWelcomeMessage);
-    setInitialLoadDone(true); // Mark that initial setup is done
+    setInitialLoadDone(true);
   }, []);
 
 
   const handlePersonalizedIntro = async (profile?: string) => {
     setIsGeneratingIntro(true);
-    setIntroMessage("Crafting your personalized welcome..."); // Loading message
+    setIntroMessage("Crafting your personalized welcome...");
 
     const input: GenerateIntroInput = {
       viewerProfile: profile,
@@ -48,7 +47,7 @@ export default function Home() {
       setIntroMessage(result.introMessage);
     } catch (error) {
       console.error("Error generating intro:", error);
-      setIntroMessage(defaultWelcomeMessage); // Fallback to default on error
+      setIntroMessage(defaultWelcomeMessage);
     } finally {
       setIsGeneratingIntro(false);
     }
@@ -57,26 +56,26 @@ export default function Home() {
   const handleConfirm = (inputValue: string) => {
     setIsOverlayClosing(true);
     setViewerProfile(inputValue);
-    handlePersonalizedIntro(inputValue); // AI generates intro
+    handlePersonalizedIntro(inputValue);
     setTimeout(() => {
       setShowOverlay(false);
       setIsOverlayClosing(false);
-    }, 400); // Duration of the closing animation
+    }, 400);
   };
 
   const handleSkip = () => {
     setIsOverlayClosing(true);
-    setViewerProfile(''); // No specific profile
-    setIntroMessage(defaultWelcomeMessage); // Use default message, no AI call
-    setIsGeneratingIntro(false); // Ensure loading state is off
+    setViewerProfile('');
+    setIntroMessage(defaultWelcomeMessage);
+    setIsGeneratingIntro(false);
     setTimeout(() => {
       setShowOverlay(false);
       setIsOverlayClosing(false);
-    }, 400); // Duration of the closing animation
+    }, 400);
   };
 
   if (!initialLoadDone) {
-    return ( // Or a more sophisticated loading screen
+    return (
       <div className="flex justify-center items-center min-h-screen">
         Loading portfolio...
       </div>
@@ -104,6 +103,8 @@ export default function Home() {
           generatedIntro={introMessage}
           isGenerating={isGeneratingIntro}
         />
+        <Separator className="my-8 md:my-12 max-w-sm md:max-w-md mx-auto" />
+        <SkillsSection />
         <Separator className="my-8 md:my-12 max-w-sm md:max-w-md mx-auto" />
         <PortfolioSection />
         <Separator className="my-8 md:my-12 max-w-sm md:max-w-md mx-auto" />

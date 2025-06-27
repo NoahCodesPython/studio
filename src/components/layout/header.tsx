@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react';
 
 const navLinks = [
   { href: "#home", label: "Home" },
+  { href: "#skills", label: "Skills" },
   { href: "#portfolio", label: "Portfolio" },
   { href: "#resume", label: "Resume" },
   { href: "#contact", label: "Contact" },
@@ -39,12 +40,12 @@ export default function Header() {
             <CodeXml className="h-7 w-7 transition-transform duration-300 group-hover:rotate-12" />
             Charan
           </Link>
-          <nav className="hidden md:flex flex-1 justify-center items-center space-x-2"> {/* Added items-center and increased space-x slightly */}
+          <nav className="hidden md:flex flex-1 justify-center items-center space-x-2">
             {navLinks.map((link) => (
               <Button key={link.href} variant="ghost" asChild
-                className="hover:bg-accent/20 interactive-scale px-3 py-2" // Added interactive-scale and adjusted padding
+                className="hover:bg-accent/20 interactive-scale px-3 py-2"
               >
-                <Link href={link.href} className="text-sm font-medium tracking-wider text-foreground/80 hover:text-foreground transition-colors"> {/* Increased font-medium and added tracking-wider */}
+                <Link href={link.href} className="text-sm font-medium tracking-wider text-foreground/80 hover:text-foreground transition-colors">
                   {link.label}
                 </Link>
               </Button>
@@ -52,7 +53,6 @@ export default function Header() {
           </nav>
           <div className="flex items-center">
             <ThemeToggle />
-            {/* Mobile menu can be added here if needed */}
           </div>
         </div>
       </div>

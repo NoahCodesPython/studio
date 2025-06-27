@@ -45,7 +45,7 @@ const initialProjectsData: Project[] = [
     dataAiHint: 'modern web design code',
     tags: ['Next.js', 'React', 'Tailwind', 'ShadCN', 'Genkit'],
     liveLink: '#',
-    codeLink: '#', // Assuming this portfolio's code isn't public by default, or you'll provide it.
+    codeLink: '#',
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
   },
@@ -56,7 +56,7 @@ const initialProjectsData: Project[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     dataAiHint: 'data charts graphs python',
     tags: ['Python', 'MySQL', 'Data Analysis', 'Pandas', 'Matplotlib'],
-    codeLink: '#', // Replace with actual link if available
+    codeLink: '#',
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
   },
@@ -88,10 +88,9 @@ export default function PortfolioSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Update visibility state based on whether the element is intersecting
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 } // Trigger when 10% of the element is visible
+      { threshold: 0.1 }
     );
 
     const currentRef = sectionRef.current;
@@ -137,12 +136,12 @@ export default function PortfolioSection() {
       ref={sectionRef}
       className={cn("container mx-auto px-4 animate-on-scroll", isVisible ? "is-visible" : "")}
     >
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-20 tracking-tight">My Work</h2> {/* Increased margin-bottom */}
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-20 tracking-tight">My Work</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project) => (
           <Card
             key={project.id}
-            className="group flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:scale-[1.03] border border-primary/10 hover:border-primary/40" /* Added hover:scale and stronger hover border */
+            className="group flex flex-col overflow-hidden shadow-lg hover:shadow-primary/20 hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 border bg-gradient-to-br from-card to-card/80 hover:border-accent"
           >
             <div className="relative w-full h-52 bg-muted flex items-center justify-center overflow-hidden">
               {project.isLoadingImage ? (
@@ -152,7 +151,7 @@ export default function PortfolioSection() {
                   src={project.currentImageUrl}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" /* Stronger image scale on hover */
+                  className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                   data-ai-hint={project.dataAiHint}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
@@ -166,7 +165,7 @@ export default function PortfolioSection() {
             <CardContent className="flex-grow pt-2">
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs px-3 py-1.5 rounded-full cursor-default"> {/* Increased padding */}
+                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-xs px-3 py-1.5 rounded-full cursor-default">
                     {tag}
                   </Badge>
                 ))}
