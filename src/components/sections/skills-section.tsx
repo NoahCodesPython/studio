@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useRef, useEffect, useState } from 'react';
@@ -46,7 +45,7 @@ export default function SkillsSection() {
 
     const current = sectionRef.current;
     if (current) observer.observe(current);
-    
+
     return () => {
       if (current) observer.unobserve(current);
     };
