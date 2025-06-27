@@ -11,17 +11,6 @@ import WelcomeOverlay from '@/components/welcome-overlay';
 import { generateIntro, type GenerateIntroInput } from '@/ai/flows/generate-intro';
 import SkillsSection from '@/components/sections/skills-section';
 
-// Debugging imports
-console.log('IntroSection:', IntroSection);
-console.log('PortfolioSection:', PortfolioSection);
-console.log('ResumeSection:', ResumeSection);
-console.log('ContactSection:', ContactSection);
-console.log('Separator:', Separator);
-console.log('WelcomeOverlay:', WelcomeOverlay);
-console.log('SkillsSection:', SkillsSection);
-console.log('generateIntro:', generateIntro);
-
-
 const ownerInfo = {
   name: "Charan Nihaal",
   profession: "College Student",
@@ -105,6 +94,7 @@ export default function Home() {
           inputPlaceholder="Your role or how you know me"
           confirmButtonText="Personalize Experience"
           skipButtonText="View General Site"
+          aria-label={`Welcome to ${ownerInfo.name}'s Portfolio!`}
         />
       )}
       <div className={`main-content ${showOverlay && !isOverlayClosing ? 'blurred' : ''} flex flex-col items-center space-y-16 md:space-y-24 py-8 md:py-12`}>
