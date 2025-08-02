@@ -8,8 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { cn } from "@/lib/utils";
 
 export default function ResumeSection() {
-  const resumePdfUrl = "/resume_placeholder.pdf";
-  const downloadFilename = "Charan_Nihaal_R_Resume.pdf";
+  const resumePdfUrl = "/White Simple Student CV Resume.pdf";
+  const downloadFilename = "White Simple Student CV Resume.pdf";
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
