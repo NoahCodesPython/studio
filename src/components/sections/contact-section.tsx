@@ -59,9 +59,9 @@ export default function ContactSection() {
   const contactDetails: ContactDetail[] = [
     {
       method: "Email",
-      value: "shivanicharan297@gmail.com",
+      value: "charancodes@proton.me",
       icon: <Mail className="h-5 w-5 text-primary" />,
-      href: "mailto:shivanicharan297@gmail.com",
+      href: "mailto:charancodes@proton.me",
     },
     {
       method: "Phone",

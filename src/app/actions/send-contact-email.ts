@@ -18,7 +18,7 @@ const SMTP_HOST = process.env.SMTP_HOST;
 const SMTP_PORT = process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT, 10) : 587;
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASSWORD = process.env.SMTP_PASSWORD;
-const MAIL_TO = 'shivanicharan297@gmail.com'; // The email address that will receive the contact form submissions
+const MAIL_TO = 'charancodes@proton.me'; // The email address that will receive the contact form submissions
 const MAIL_FROM_ADDRESS = process.env.MAIL_FROM_ADDRESS || SMTP_USER; // Email address shown in the 'From' field
 const MAIL_FROM_NAME = process.env.MAIL_FROM_NAME || 'Contact Form'; // Display name for the 'From' field
 
