@@ -33,7 +33,7 @@ const initialProjectsData: Project[] = [
     dataAiHint: 'community chat app',
     tags: ['Discord.js', 'Node.js', 'JavaScript', 'Community'],
     liveLink: 'https://discord.com/api/oauth2/authorize?client_id=816987224662999040&permissions=8&scope=bot%20applications.commands',
-    codeLink: 'https://github.com/NoahCodesPython/Aquire',
+    codeLink: 'https://github.com/NoahCodesPython/codespaces-blank',
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
   },
@@ -68,7 +68,7 @@ const initialProjectsData: Project[] = [
     dataAiHint: 'discord bot animation',
     tags: ['NPM', 'Node.js', 'JavaScript', 'Discord', 'GIF', 'Canvas'],
     liveLink: 'https://www.npmjs.com/package/animated-welcome',
-    codeLink: 'https://github.com/NoahCodesPython/animated-welcome',
+    codeLink: 'https://github.com/NoahCodesPython/animatedwelcome',
     currentImageUrl: 'https://placehold.co/600x400.png',
     isLoadingImage: true
   },
